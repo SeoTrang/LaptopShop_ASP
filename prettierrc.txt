@@ -1,0 +1,11 @@
+Kích thước của mỗi dòng được đặt thành 120 ký tự.
+Các tab được chuyển đổi thành hai khoảng trắng.
+Các dấu chấm phẩy được sử dụng để kết thúc các câu lệnh.
+Các dấu ngoặc kép đơn được sử dụng cho tất cả các chuỗi.
+Dấu phẩy theo sau các đối tượng và mảng.
+Các dấu ngoặc nhọn được đặt ở cùng một dòng với các đối tượng và mảng.
+Các dấu ngoặc đơn được đặt ở cùng một dòng với các hàm và biểu thức.
+Các khoảng trắng được đặt xung quanh các toán tử.
+Dấu ngắt dòng được sử dụng cho các dòng mới.
+Các thẻ HTML được định dạng theo quy tắc CSS.
+Các thẻ Vue được định dạng theo cách tương tự như HTML.

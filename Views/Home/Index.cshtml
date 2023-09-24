@@ -1,0 +1,526 @@
+﻿@model LapTopShop.ViewModels.HomeViewModel
+
+@{
+    ViewData["Title"] = "Trang Chủ";
+}
+
+<div class="body">
+            <div class="slider slider-home-page">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide"><img src="https://www.mayxachtay.vn/uploads/2022/08/laptop-xach-tay-chuan-my-scaled.jpg" alt="Image 1"></div>
+                      <div class="swiper-slide"><img src="https://www.mayxachtay.vn/uploads/2023/04/banner-laptop-8tr.jpg" alt="Image 2"></div>
+                      <div class="swiper-slide"><img src="https://www.mayxachtay.vn/uploads/2022/10/Acer-Nitro-Tiger-PC.jpg" alt="Image 3"></div>
+                      <!-- Thêm nhiều slide ảnh khác tùy ý -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div> <!-- Nút chuyển slide sang trái -->
+                    <div class="swiper-button-next"></div> <!-- Nút chuyển slide sang phải -->
+                  </div>
+            </div>
+
+            <div class="contentApp">
+
+                <!-- <div class="type-laptop">
+
+                </div> -->  
+
+                @* <div class="t">
+                    @Model.SaleHotProducts[0].ProductName
+                </div> *@
+                <div class="sale">
+
+                    <div class="title">
+                        <div class="title-left">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>
+                                Giá Tốt Hôm Nay
+                            </span>
+                        </div>
+
+                        <div class="title-right">
+                            <span>
+                                Xem thêm
+                            </span>
+
+                            <i class="fa-solid fa-caret-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="box-product">
+                        @foreach (var item in Model.SaleHotProducts)
+                        {
+                            <a asp-action="Index" asp-route-id="@item.Id" asp-controller="Detail" class="cardProduct">
+                                <div class="img">
+                                    <img src="@item.Avatar" alt="">
+                                </div>
+        
+                                <div class="description">
+                                    <div class="name">
+                                        <h6>@item.ProductName</h6>
+                                    </div>
+            
+                                    <div class="sortDes">
+                                            <div class="ram">
+                                                @item.Ram
+                                            </div>
+                                            <div class="storage">
+                                                @item.HardDrive
+                                            </div>
+
+                                            <div class="is-new">
+                                                @item.Status
+                                            </div>
+
+                                        </div>
+                                    <div class="desBottom">
+                                        
+                                        <div class="price">
+                                            <div class="old-price">
+                                                @item.OldPrice.ToString("N0")₫
+                                            </div>
+                                            <div class="curent-price">
+                                                @item.Price.ToString("N0")₫
+                                            </div>
+                                        </div>
+
+                                        <div class="add-to-cart">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+    
+    
+                            </a>
+                        }
+                        @* <a asp-action="Index" asp-route-id="@item.Id" asp-controller="Detail" class="cardProduct">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Products/Images/44/272282/acer-nitro-5-tiger-an515-58-52sp-i5-nhqfhsv001-180222-043416-600x600.jpg" alt="">
+                            </div>
+    
+                            <div class="description">
+                                <div class="name">
+                                    <h6>Acer Nitro 16 2023 (Core i5-13500H, 16GB, 512GB, RTX 4050 6GB</h6>
+                                </div>
+        
+                                <div class="sortDes">
+                                        <div class="ram">
+                                            Ram 8GB
+                                        </div>
+                                        <div class="storage">
+                                            SSD 256GB
+                                        </div>
+
+                                        <div class="is-new">
+                                            Mới
+                                        </div>
+
+                                    </div>
+                                <div class="desBottom">
+                                    
+                                    <div class="price">
+                                        <div class="old-price">
+                                            30.990.000
+                                        </div>
+                                        <div class="curent-price">
+                                            24.990.000 
+                                        </div>
+                                    </div>
+
+                                    <div class="add-to-cart">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+                        </a>
+    
+                        *@
+                    </div>
+
+                </div>
+
+                <!-- category -->
+                <div class="category-body">
+                    <div class="title">
+                        <div class="title-left">
+                            <i class="fa-solid fa-qrcode"></i>
+                            <span>
+                                Top Danh Mục
+                            </span>
+                        </div>
+                    </div>
+                    <div class="banner">
+                        <img src="https://www.mayxachtay.vn/uploads/2023/05/Asus-TUF.jpg" alt="">
+                        <img src="https://www.mayxachtay.vn/uploads/2023/05/Lenovo-Gaming.jpg" alt="">
+                        <img src="https://www.mayxachtay.vn/uploads/2023/05/Dell-Gaming.jpg" alt="">
+                        <img src="https://www.mayxachtay.vn/uploads/2023/05/Acer-Gaming.jpg" alt="">
+                    </div>
+
+                    <div class="list-cate">
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/logo-hp-149x40-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/logo-asus-149x40.png" alt="">
+                            </div>
+                        </div>
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/logo-lenovo-149x40.png" alt="">
+                            </div>
+                        </div>
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/logo-acer-149x40.png" alt="">
+                            </div>
+                        </div>
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/logo-dell-149x40.png" alt="">
+                            </div>
+                        </div>
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/logo-msi-149x40.png" alt="">
+                            </div>
+                        </div>
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/logo-macbook-149x40.png" alt="">
+                            </div>
+                        </div>
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/logo-itel-149x40.png" alt="">
+                            </div>
+                        </div>
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/logo-gigabyte-149x40.png" alt="">
+                            </div>
+                        </div>
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/logo-surface-149x40-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/Masstel42-b0-200x48-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/logo-lg-149x40.png" alt="">
+                            </div>
+                        </div>
+                        <div class="cate">
+                            <div class="img">
+                                <img src="https://cdn.tgdd.vn/Brand/1/logo-singpc-149x40-1.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- van phong -->
+                <div class="van-phong">
+
+                    <div class="title-box-product-top">
+                        <div class="title-left">
+                            
+                            <span>
+                                Học Tập Văn Phòng
+                            </span>
+                        </div>
+
+                        <div class="title-right">
+                            <span>
+                                Xem thêm
+                            </span>
+
+                            <i class="fa-solid fa-caret-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="box-product">
+                        @foreach (var item in Model.OfficeLaptops)
+                        {
+                            <a asp-action="Index" asp-route-id="@item.Id" asp-controller="Detail" class="cardProduct">
+                                <div class="img">
+                                    <img src="@item.Avatar" alt="">
+                                </div>
+        
+                                <div class="description">
+                                    <div class="name">
+                                        <h6>@item.ProductName</h6>
+                                    </div>
+            
+                                    <div class="sortDes">
+                                            <div class="ram">
+                                                @item.Ram
+                                            </div>
+                                            <div class="storage">
+                                                @item.HardDrive
+                                            </div>
+
+                                            <div class="is-new">
+                                                @item.Status
+                                            </div>
+
+                                        </div>
+                                    <div class="desBottom">
+                                        
+                                        <div class="price">
+                                            <div class="old-price">
+                                                @item.OldPrice.ToString("N0")₫
+                                            </div>
+                                            <div class="curent-price">
+                                                @item.Price.ToString("N0")₫
+                                            </div>
+                                        </div>
+
+                                        <div class="add-to-cart">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+    
+    
+                            </a>
+                        }
+                       
+                    </div>
+
+                </div>
+
+                <!-- van phong -->
+                <div class="gaming">
+
+                    <div class="title-box-product-top">
+                        <div class="title-left">
+                            
+                            <span>
+                                Laptop Gaming
+                            </span>
+                        </div>
+
+                        <div class="title-right">
+                            <span>
+                                Xem thêm
+                            </span>
+
+                            <i class="fa-solid fa-caret-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="box-product">
+                        @foreach (var item in Model.GamingLaptops)
+                        {
+                            <a asp-action="Index" asp-route-id="@item.Id" asp-controller="Detail" class="cardProduct">
+                                <div class="img">
+                                    <img src="@item.Avatar" alt="">
+                                </div>
+        
+                                <div class="description">
+                                    <div class="name">
+                                        <h6>@item.ProductName</h6>
+                                    </div>
+            
+                                    <div class="sortDes">
+                                            <div class="ram">
+                                                @item.Ram
+                                            </div>
+                                            <div class="storage">
+                                                @item.HardDrive
+                                            </div>
+
+                                            <div class="is-new">
+                                                @item.Status
+                                            </div>
+
+                                        </div>
+                                    <div class="desBottom">
+                                        
+                                        <div class="price">
+                                            <div class="old-price">
+                                                @item.OldPrice.ToString("N0")₫
+                                            </div>
+                                            <div class="curent-price">
+                                                @item.Price.ToString("N0")₫
+                                            </div>
+                                        </div>
+
+                                        <div class="add-to-cart">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+    
+    
+                            </a>
+                        }
+                       
+                    </div>
+
+                </div>
+
+                <!-- do hoa -->
+                <div class="do-hoa">
+
+                    <div class="title-box-product-top">
+                        <div class="title-left">
+                            
+                            <span>
+                                Laptop Đồ Họa
+                            </span>
+                        </div>
+
+                        <div class="title-right">
+                            <span>
+                                Xem thêm
+                            </span>
+
+                            <i class="fa-solid fa-caret-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="box-product">
+                        @foreach (var item in Model.GraphicsLaptops)
+                        {
+                            <a asp-action="Index" asp-route-id="@item.Id" asp-controller="Detail" class="cardProduct">
+                                <div class="img">
+                                    <img src="@item.Avatar" alt="">
+                                </div>
+        
+                                <div class="description">
+                                    <div class="name">
+                                        <h6>@item.ProductName</h6>
+                                    </div>
+            
+                                    <div class="sortDes">
+                                            <div class="ram">
+                                                @item.Ram
+                                            </div>
+                                            <div class="storage">
+                                                @item.HardDrive
+                                            </div>
+
+                                            <div class="is-new">
+                                                @item.Status
+                                            </div>
+
+                                        </div>
+                                    <div class="desBottom">
+                                        
+                                        <div class="price">
+                                            <div class="old-price">
+                                                @item.OldPrice.ToString("N0")₫
+                                            </div>
+                                            <div class="curent-price">
+                                                @item.Price.ToString("N0")₫
+                                            </div>
+                                        </div>
+
+                                        <div class="add-to-cart">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+    
+    
+                            </a>
+                        }
+                    
+                    </div>
+
+                </div>
+
+                <div class="danh-cho-ban">
+
+                    <div class="title-box-product-top">
+                        <div class="title-left">
+                            
+                            <span>
+                                Dành Cho Bạn
+                            </span>
+                        </div>
+
+                        <div class="title-right">
+                            <span>
+                                Xem thêm
+                            </span>
+
+                            <i class="fa-solid fa-caret-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="box-product">
+                        @foreach (var item in Model.LaptopForYou)
+                        {
+                            <a asp-action="Index" asp-route-id="@item.Id" asp-controller="Detail" class="cardProduct">
+                                <div class="img">
+                                    <img src="@item.Avatar" alt="">
+                                </div>
+        
+                                <div class="description">
+                                    <div class="name">
+                                        <h6>@item.ProductName</h6>
+                                    </div>
+            
+                                    <div class="sortDes">
+                                            <div class="ram">
+                                                @item.Ram
+                                            </div>
+                                            <div class="storage">
+                                                @item.HardDrive
+                                            </div>
+
+                                            <div class="is-new">
+                                                @item.Status
+                                            </div>
+
+                                        </div>
+                                    <div class="desBottom">
+                                        
+                                        <div class="price">
+                                            <div class="old-price">
+                                                @item.OldPrice.ToString("N0")₫
+                                            </div>
+                                            <div class="curent-price">
+                                                @item.Price.ToString("N0")₫
+                                            </div>
+                                        </div>
+
+                                        <div class="add-to-cart">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+    
+    
+                            </a>
+                        }
+                        
+                    </div>
+
+                </div>
+
+
+                <!-- slogan -->
+                <div class="slogan">
+
+                </div>
+
+
+
+            </div>
+
+
+              
+        </div>

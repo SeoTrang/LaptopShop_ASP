@@ -1,0 +1,83 @@
+// install package
+dotnet tool install --global dotnet-ef
+dotnet tool install --global dotnet-aspnet-codegenerator
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package MySql.Data.EntityFramework
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+
+dotnet add package Microsoft.AspNetCore.Identity
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.AspNetCore.Identity.UI
+dotnet add package Microsoft.AspNetCore.Authentication
+dotnet add package Microsoft.AspNetCore.Http.Abstractions
+dotnet add package Microsoft.AspNetCore.Authentication.Cookies
+dotnet add package Microsoft.AspNetCore.Authentication.Facebook
+dotnet add package Microsoft.AspNetCore.Authentication.Google
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount
+dotnet add package Microsoft.AspNetCore.Authentication.oAuth
+dotnet add package Microsoft.AspNetCore.Authentication.OpenIDConnect
+dotnet add package Microsoft.AspNetCore.Authentication.Twitter
+
+"ConnectionStrings":{
+    "TodoList": "Data Source=Trang\\SQLEXPRESS;Initial Catalog=TodoList;Trusted_Connection=true;Encrypt=False;TrustServerCertificate=False;MultipleActiveResultSets=True"
+  }
+  "ConnectionStrings": {
+    "MyBlogContext": "Data Source=localhost,1433; Initial Catalog=myblog; User ID=SA;Password=Password123"
+  }
+
+// emtityframework
+
+
+dotnet ef migrations add Identity
+
+
+dotnet ef migrations add Contact
+
+dotnet ef migrations list
+
+dotnet ef migrations remove
+
+dotnet ef database update 
+
+// Identity
+dotnet aspnet-codegenerator identity -dc Identity2.Model.AuthDbContext // phát sinh giao diện cho identity
+
+dotnet new gitignore
+
+// tao mvc areas
+
+dotnet aspnet-codegenerator area Admin
+
+
+
+// phát sinh crud bằng lệnh :
+
+dotnet aspnet-codegenerator controller -name CategoryController -namespace LapTopShop.Controllers -m LapTopShop.Models.Category -udl -dc dbContext -outDir Controllers/
+
+dotnet aspnet-codegenerator controller -name CategoryController -namespace LapTopShop.Areas.Admin.Controllers -m LapTopShop.Models.Category -udl -dc dbContext -outDir Areas/Admin/Controllers
+dotnet aspnet-codegenerator controller -name CategoryController -namespace LapTopShop.Areas.Controllers -m LapTopShop.Models.Category -udl -dc dbContext -outDir Areas/Admin/Controllers
+
+dotnet aspnet-codegenerator controller -name CategoryController -namespace LapTopShop.Areas.Admin.Controllers -m LapTopShop.Models.Category -udl -dc dbContext -outDir Areas/Admin/Controllers -area Admin
+
+dotnet aspnet-codegenerator controller -name ProductController -namespace LapTopShop.Areas.Admin.Controllers -m LapTopShop.Models.Product -udl -dc dbContext -outDir Areas/Admin/Controllers
+
+
+
+
+
+dotnet aspnet-codegenerator controller -name ProductController -namespace LapTopShop.Controllers -m LapTopShop.Models.Product -udl -dc dbContext -outDir Controllers/
+
+
+
+
+
+
+
+// biên dịch scss sang css 
+gulp sass
+https://xuanthulab.net/asp-net-core-su-dung-gulp-js-build-scss-sass-thanh-css.html

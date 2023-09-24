@@ -1,0 +1,253 @@
+
+@model LapTopShop.ViewModels.DetailViewModel
+
+
+
+
+<div class="body">
+            <div class="contentApp">
+
+                <div class="route">
+                    <div><i class="fa-solid fa-house"></i></div>
+                    <div>/</div>
+                    <div>Chi Tiết Sản Phẩm</div>
+
+                </div>
+                 
+
+
+               <div class="contaier-detail">
+                    <div class="product-name">
+                        @Model.product.ProductName
+                    </div>
+
+                    <div class="line">
+                        
+                    </div>
+
+                    @* @foreach(var img in @Model.product.ListFileDetail){
+                                        <div >
+                                            <div >@img.FileName</div >
+                                        </div>
+                                    } *@
+
+
+                    <div class="detail-product">
+
+                        <div class="detail-left">
+                            <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+                                <div class="swiper-wrapper">
+
+                                    @foreach(var img in @Model.product.ListFileDetail){
+                                        <div class="swiper-slide">
+                                            <img src="@img.FilePath" />
+                                        </div>
+                                    }
+                                    
+                                
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                            <div thumbsSlider="" class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    @foreach(var img in @Model.product.ListFileDetail){
+                                        <div class="swiper-slide">
+                                            <img src="@img.FilePath" />
+                                        </div>
+                                    }
+                                @* <div class="swiper-slide">
+                                    <img src="https://cdn.tgdd.vn/Products/Images/44/231244/grey-1-org.jpg" />
+                                </div> *@
+                                
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-right">
+                            <div class="price">
+                                <div class="current-price">
+                                    @Model.product.Price.ToString("N0")₫
+                                </div>
+                                <div class="old-price">
+                                    @Model.product.OldPrice.ToString("N0")₫
+                                </div>
+                            </div>
+
+                            <div class="status item-right">
+                                <div class="title">
+                                    Tình trạng : 
+                                </div>
+                                <div class="value">
+                                    @Model.product.Status
+                                </div>
+                            </div>
+                            <div class="maker item-right">
+                                <div class="title">
+                                    Thương hiệu : 
+                                </div>
+                                <div class="value">
+                                    @Model.product.Category.Name
+                                </div>
+                            </div>
+
+                            <div class="item-right product-color ">
+                                <div class="title">
+                                    Màu sản phẩm : 
+                                </div>
+                                <div class="value">
+                                    Bạc
+                                </div>
+                            </div>
+
+                            <div class="user-action">
+
+                                <div class="form">
+                                    <div class="title">Số lượng : </div>
+                                    <div class="form-input">
+                                        <button class="btn-minus"><i class="fa-solid fa-minus"></i></button>
+                                        <input class="no-spin" readonly type="number" min="1" value="1">
+                                        <button class="btn-minus"><i class="fa-solid fa-plus"></i></button>
+    
+                                    </div>
+                                </div>
+
+                                <div class="btn-action-bottom">
+                                    <button class="btn-buy-now">
+                                        Mua Ngay
+                                    </button>
+                                    <button class="btn-add-to-cart">
+                                        Thêm Vào Giỏ Hàng
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="specifications">
+                                <div class="title">
+                                    Thông số kỹ thuật
+                                </div>
+
+                                <ul>
+                                    <li>
+                                        <p>
+                                            Màn hình:
+                                        </p>
+                                        <span>
+                                            
+                                            @Model.product.ScreenResolution
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Hệ điều hành:
+                                        </p>
+                                        <span>
+                                            
+                                            @Model.product.Os
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            CPU:
+                                        </p>
+                                        <span>
+                                            
+                                            @Model.product.CpuTechnology
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            GPU:
+                                        </p>
+                                        <span>
+                                            @Model.product.GraphicCard
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Cổng kết nối:
+                                        </p>
+                                        <span>
+                                            
+                                            @Model.product.Connector
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            RAM:
+                                        </p>
+                                        <span>
+                                            @Model.product.Ram
+                                        </span>
+                                    </li>
+                                    <!-- <li>
+                                        <p>
+                                            Dung lượng lưu trữ:
+                                        </p>
+                                        <span>
+                                            
+                                            256 GB SSD
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Thiết kế:
+                                        </p>
+                                        <span>
+                                            
+                                            Vỏ kim loại
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Pin, Sạc:
+                                        </p>
+                                        <span>
+                                            
+                                            Lên đến 18 giờ (Hãng công bố),
+                                        </span>
+                                    </li> -->
+                                </ul>
+
+                                <div class="btn-view-more">
+                                    <button>Xem chi tiết cấu hình</button>
+                                </div>
+
+                            </div>
+
+                           
+
+                        </div>
+                    </div>
+
+                    <div class="article">
+                        <div class="title">
+                            <i class="fa-regular fa-newspaper"></i>
+                            <h5>Bài viết sản phẩm</h5>
+                        </div>
+
+                        <div class="article-content">
+                            @Html.Raw(Model.product.Article)
+                        </div>
+
+
+                        <div class="comment">
+                            <div class="title">
+                                Hỏi & đáp
+                            </div>
+
+                            <div class="inputComment">
+                                <div class="Comment_input"><textarea rows="4" name="comment" placeholder="Mời bạn để lại bình luận..."></textarea>
+                                </div>
+                                <div class="Comment_action"><button>Gửi bình luận</button></div>
+                            </div>
+
+                            <div class="content-comment">
+                                
+                            </div>
+                        </div>
+                    </div>
+               </div>
+
+            </div>
+        </div>

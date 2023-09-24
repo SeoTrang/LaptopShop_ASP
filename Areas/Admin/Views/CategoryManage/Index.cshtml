@@ -1,0 +1,325 @@
+@model IEnumerable<LapTopShop.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+    int stt = 0;
+}
+
+@* <h1>Index</h1> *@
+
+@* <p>
+    <a asp-area="Admin" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avatar)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Avatar)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table> *@
+
+
+<div class="container-app">
+    <div class="header">
+        <div class="box-left">
+            <div class="change-size">
+                <!-- fullsize -->
+                <i class="fa-solid fa-expand"></i> 
+
+                <!-- minsize -->
+                <!-- <i class="fa-solid fa-compress"></i> -->
+
+            </div>
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+
+        <div class="box-right">
+            <div class="bell">
+                <i class="fa-regular fa-bell"></i>
+                <span>5</span>
+            </div>
+
+            <div class="user">
+                <div class="name">
+                    Trần Tân
+                </div>
+
+                <div class="avatar">
+                    <img src="https://demos.pixinvent.com/modern-html-admin-template/app-assets/images/portrait/small/avatar-s-19.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="category-manage-page">
+            <div class="title-top">
+                <div class="title-left">
+                    <i class="fa-solid fa-list"></i>
+                    <span>Quản Lý Danh Mục</span>
+                </div>
+
+                <div class="title-right">
+                    <!-- <a href="./AddCategory.html"><button class="btn-admin-common">Thêm Danh Mục Mới</button></a> -->
+                </div>
+            </div>
+
+
+            <div class="box-content">
+                <div class="category-content">
+                    <div class="row-header row-item">
+                        <div class="stt">
+                            STT
+                        </div>
+                        <div class="img">
+                            Ảnh
+                        </div>
+                        <div class="name">
+                            Tên 
+                        </div>
+
+
+                        
+
+                        <div class="quanti">
+                            Tồn Kho
+                        </div>
+
+                        <div class="action">
+
+                        </div>
+
+
+                    </div>
+
+                    @foreach (var item in Model) {
+                           
+                    
+
+                        <div class="row-body row-item">
+                            <div class="stt">
+                                @(stt+1)
+                            </div>
+                            <div class="img">
+                                <img src="@Html.DisplayFor(modelItem => item.Avatar)" alt="">
+                            </div>
+                            <div class="name">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </div>
+
+                            
+                            
+
+                            <div class="quanti">
+                                98
+                            </div>
+
+                            <div class="action">
+                                    <button class="edit" data-bs-toggle="modal" data-bs-target="#edit_category_modal_@item.Id">Sửa</button>
+                                
+
+                                <button class="delete" data-bs-toggle="modal" data-bs-target="#ModalDelete_@item.Id">
+                                    Xóa
+                                </button>
+
+                               
+
+                                <!-- Modal delete -->
+                                <div class="modal fade" id="ModalDelete_@item.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form asp-action="Delete">
+                                                <input type="hidden" name="id" value="@item.Id" />
+                                                @* <input type="submit" value="Delete" class="btn btn-danger" />  *@
+                                            
+                                            <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Thông Báo !</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                
+                                                Bạn chắc chắn muốn xóa danh mục @Html.DisplayFor(modelItem => item.Name) ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-danger" value="Delete" data-bs-dismiss="modal">Xóa</button>
+                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hủy</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade modal_add_category" id="edit_category_modal_@item.Id" tabindex="-1" aria-labelledby="add_category" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form asp-action="Edit" enctype="multipart/form-data">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="add_category">Sửa Danh Mục</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                
+                                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                    <div class="form-group form">
+                                                        <label for="categoryName" class="form-label">Tên Danh Mục</label>
+                                                        <input name="Name" id="categoryName" class="form-control" value="@item.Name"/>
+                                                        
+                                                    </div>
+                                                    <div class="form-group images">
+                                                        <div class="box-image">
+                                                            <label for="categoryAvatar_@item.Id" class="labelAvatar">
+                                                                <input class="d-none" type="text" name="id" value="@item.Id">
+                                                                <img src="@Html.DisplayFor(modelItem => item.Avatar)"  alt="" class="uploadedImage" >
+                                                                <i class="fa-solid fa-cloud-arrow-up d-none"></i>
+                                                                <span class="d-none">
+                                                                    Chọn Ảnh
+                                                                </span>
+                                                            
+                                                            </label>
+                                                            <input type="file" id="categoryAvatar_@item.Id" name="MainImageFile" onchange="displayImage_category(this)">
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Lưu</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        stt++;      
+                    }
+
+                    
+
+                    
+
+                    
+                    
+                </div>
+                <div class="chart-right">
+                    <div class="title">
+                        Top Số Lượng Sản Phẩm
+                    </div>
+                    <div class="chart">
+                        <div id="chart_category">
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="box-add-category">
+                <div class="button-add">
+                    <button data-bs-toggle="modal" data-bs-target="#add_new_category">Thêm Danh Mục Mới</button>
+                </div>
+            </div>
+            <!-- Button trigger modal -->
+            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button> -->
+            
+            <!-- Modal -->
+            <div class="modal fade modal_add_category" id="add_new_category" tabindex="-1" aria-labelledby="add_category" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <form asp-action="Create" enctype="multipart/form-data">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="add_category">Thêm Danh Mục Mới</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group form">
+                                <label for="categoryName" class="form-label">Tên Danh Mục</label>
+                                <input name="Name" id="categoryName" class="form-control" />
+                                
+                            </div>
+                            
+
+                            <div class="form-group images">
+                                <div class="box-image">
+                                    <label for="categoryAvatar_add_new" class="labelAvatar">
+                                        <img src="" alt="" class="uploadedImage">
+                                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                                        <span>
+                                            Chọn Ảnh
+                                        </span>
+                                    
+                                    </label>
+                                    <input type="file" id="categoryAvatar_add_new" name="MainImageFile" onchange="displayImage_category(this)">
+                                </div>
+                            </div>
+
+                            
+                        
+
+                        @* <div class="form">
+                            <label for="categoryName" class="form-label">Tên Danh Mục</label>
+                            <input type="text" class="form-control" id="categoryName" >
+                        </div> *@
+
+                        @* <div class="images">
+                            <div class="box-image">
+                                <label for="categoryAvatar" class="labelAvatar">
+                                    <img src="" alt="" id="uploadedImage">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <span>
+                                        Chọn Ảnh
+                                    </span>
+                                
+                                </label>
+                                <input type="file" id="categoryAvatar" name="categoryAvatar" onchange="displayImage(this)">
+                            </div>
+                        </div> *@
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Thêm</button>
+                    </div>
+
+                    </form>
+                </div>
+                </div>
+            </div>
+
+            
+            
+
+        </div>
+    </div>
+</div>

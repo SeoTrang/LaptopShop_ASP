@@ -1,0 +1,339 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,100&display=swap');
+
+body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    background-color: #e0e3e6;
+    scroll-behavior: smooth;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#admin{
+    display: flex;
+}
+
+.btn-admin-common{
+    border: none;
+    background-color: #0f3460;
+    color: #ffffff;
+    padding: 0.3em 0.5em;
+    border-radius: 5px;
+    width: 100%;
+}
+.btn-admin-common:hover{
+    background-color: #ffffff;
+    transition: 0.5s;
+    cursor: pointer;
+    color: #0f3460;
+    box-shadow: 2px 5px 18px -6px rgba(15,52,96,0.75);
+    -webkit-box-shadow: 2px 5px 18px -6px rgba(15,52,96,0.75);
+    -moz-box-shadow: 2px 5px 18px -6px rgba(15,52,96,0.75);
+}
+
+.title-top{
+    margin-top: 6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.title-top .title-left i{
+    margin-right: 0.5em;
+}
+
+.title-top .title-left span{
+    font-size: 1.2em;
+}
+
+.side-bar {
+    position: fixed;
+    z-index: 999;
+}
+
+.side-bar .logo{
+    /* display: flex;
+    justify-content: center; */
+    padding-left: 0.5em;
+}
+
+
+.side-bar{
+    font-size: 1.1em;
+    padding: 1em 1em;
+    width: 18%;
+    background-color: #0f3460;
+    color: #ffffff;
+   
+    box-shadow: 10px 4px 11px -3px rgba(255,255,255,1);
+    -webkit-box-shadow: 10px 4px 11px -3px rgba(255,255,255,1);
+    -moz-box-shadow: 10px 4px 11px -3px rgba(255,255,255,1);
+    height: 100vh;
+}
+
+.side-bar a{
+    color: #ffffff;
+}
+
+.side-bar ul{
+    margin: 0;
+    padding: 0;
+}
+
+.side-bar li{
+    list-style: none;
+}
+
+.side-bar img{
+    width: 7em;
+}
+
+.side-bar a{
+    text-decoration: none;
+}
+
+.side-bar .list-item li i{
+    margin-right: 0.5em;
+}
+
+.side-bar .list-item li {
+    width: 100%;
+}
+
+.side-bar .list-item a{
+    padding-left: 0.5em;
+    line-height: 3em;
+    width: 100% !important;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.side-bar .list-item a:hover{
+    /* transform: translateX(8px); */
+    /* background-color: #ffab0033; */
+    background-color: #ffffff;
+    color: #0f3460 !important;
+    transition: 0.3s;
+}
+
+
+/* home page */
+.container-app{
+    width: 100%;
+    margin-left: 18%;
+    /* display: flex; */
+    
+}
+
+.header {
+    position: fixed;
+    z-index: 999;
+    width: 82dvi;
+    /* padding-left: ; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    box-shadow: 2px 5px 18px -6px rgba(15,52,96,0.75);
+    -webkit-box-shadow: 2px 5px 18px -6px rgba(15,52,96,0.75);
+    -moz-box-shadow: 2px 5px 18px -6px rgba(15,52,96,0.75);
+    padding: 1em 2.5em;
+    color: #6b6f82;
+}
+
+.header .box-left,.box-right{
+    display: flex;
+}
+
+.header .box-right .user{
+    display: flex;
+    align-items: center;
+
+}
+
+
+.header .box-right .user img{
+    width: 2em;
+    border-radius: 50%;
+}
+
+
+.header .box-left{
+    font-size: 1.2em;
+    
+}
+
+.header .box-left .search{
+    margin-left: 1em;
+}
+
+.header .box-right .bell{
+    font-size: 1.2em;
+    margin-right: 1em;
+    position: relative;
+}
+
+.header .box-right .bell span{
+    background-color: #ff4961;
+    font-size: 0.8em;
+    /* background-color: ; */
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    box-shadow: 0 0 10px #ff4961;
+    color: #ffffff;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1em;
+}
+
+.header .box-right .user .name{
+    margin-right: 0.5em;
+}
+
+
+
+
+.content{
+    background-color: transparent;
+    margin-top: 5em;
+    margin-left: 2em;
+    margin-right: 2.5em;
+}
+
+.home-page .list-card-top{
+    margin-top: 6em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-page .list-card-top .card-item{
+    background-color: #ffffff;
+    box-shadow: 0 2px 18px 1px rgba(49,53,72,.1);
+    border-radius: 5px;
+    padding: 1em 2em;
+    width: 23%;
+}
+
+.home-page .card-item .card-top{
+    display: flex;
+    align-items: center;
+}
+.home-page .card-item .card-top .card-content{
+    font-weight: 500;
+    width: 70%;
+}
+.home-page .card-item .card-top .card-icon{
+    font-size: 2em;
+    text-align: center;
+    width: 30%;
+    /* color: #1e9ff2; */
+    
+}
+
+.home-page .card-item .title{
+    color: #464855;
+}
+
+.home-page .list-card-top .revenue{
+    color: #1e9ff2;
+}
+
+.home-page .list-card-top .revenue .progress-bar{
+    margin-top: 1em;
+    height: 6px;
+    border-radius: 10px;
+    background-color: #1e9ff2;
+}
+
+
+
+.home-page .list-card-top .profit{
+    color: #ff9149;
+}
+
+.home-page .list-card-top .profit .progress-bar{
+    margin-top: 1em;
+    height: 6px;
+    border-radius: 10px;
+    background-color: #ff9149;
+}
+
+
+
+.home-page .list-card-top .sold{
+    color: #28d094;
+}
+
+.home-page .list-card-top .sold .progress-bar{
+    margin-top: 1em;
+    height: 6px;
+    border-radius: 10px;
+    background-color: #28d094;
+}
+
+.home-page .list-card-top .user{
+    color: #ff4961;
+}
+
+.home-page .list-card-top .user .progress-bar{
+    margin-top: 1em;
+    height: 6px;
+    border-radius: 10px;
+    background-color: #ff4961;
+}
+
+.home-page .list-card-top .card-item:hover{
+    transition: 0.3s linear;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 14px 24px rgba(62,57,107,.2);
+}
+
+
+/* chart */
+/* .chart{
+    background-color: #ffffff;
+} */
+
+
+
+.home-page .charts{
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-page .charts .title{
+    margin-bottom: 2em;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+.home-page .chart-left{
+    padding: 1em 2em;
+    width: 67%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 2px 5px 18px -6px rgba(15,52,96,0.75);
+    -webkit-box-shadow: 2px 5px 18px -6px rgba(15,52,96,0.75);
+    -moz-box-shadow: 2px 5px 18px -6px rgba(15,52,96,0.75);
+}
+
+.home-page .chart-right{
+    padding: 0.5em 0.5em;
+    width: 30%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 2px 5px 18px -6px rgba(15,52,96,0.75);
+    -webkit-box-shadow: 2px 5px 18px -6px rgba(15,52,96,0.75);
+    -moz-box-shadow: 2px 5px 18px -6px rgba(15,52,96,0.75);
+}
+
+

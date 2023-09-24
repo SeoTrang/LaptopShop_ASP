@@ -1,0 +1,585 @@
+@model LapTopShop.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@* <div class="container-app">
+    
+<h1>Create</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OldPrice" class="control-label"></label>
+                <input asp-for="OldPrice" class="form-control" />
+                <span asp-validation-for="OldPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discount" class="control-label"></label>
+                <input asp-for="Discount" class="form-control" />
+                <span asp-validation-for="Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Avatar" class="control-label"></label>
+                <input asp-for="Avatar" class="form-control" />
+                <span asp-validation-for="Avatar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CpuTechnology" class="control-label"></label>
+                <input asp-for="CpuTechnology" class="form-control" />
+                <span asp-validation-for="CpuTechnology" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kernel" class="control-label"></label>
+                <input asp-for="Kernel" class="form-control" />
+                <span asp-validation-for="Kernel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Threads" class="control-label"></label>
+                <input asp-for="Threads" class="form-control" />
+                <span asp-validation-for="Threads" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProcessorSpeedCPU" class="control-label"></label>
+                <input asp-for="ProcessorSpeedCPU" class="form-control" />
+                <span asp-validation-for="ProcessorSpeedCPU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxSpeed" class="control-label"></label>
+                <input asp-for="MaxSpeed" class="form-control" />
+                <span asp-validation-for="MaxSpeed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Caching" class="control-label"></label>
+                <input asp-for="Caching" class="form-control" />
+                <span asp-validation-for="Caching" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ram" class="control-label"></label>
+                <input asp-for="Ram" class="form-control" />
+                <span asp-validation-for="Ram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeRAM" class="control-label"></label>
+                <input asp-for="TypeRAM" class="form-control" />
+                <span asp-validation-for="TypeRAM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RAMBusSpeed" class="control-label"></label>
+                <input asp-for="RAMBusSpeed" class="form-control" />
+                <span asp-validation-for="RAMBusSpeed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxRam" class="control-label"></label>
+                <input asp-for="MaxRam" class="form-control" />
+                <span asp-validation-for="MaxRam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HardDrive" class="control-label"></label>
+                <input asp-for="HardDrive" class="form-control" />
+                <span asp-validation-for="HardDrive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScreenSize" class="control-label"></label>
+                <input asp-for="ScreenSize" class="form-control" />
+                <span asp-validation-for="ScreenSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScreenResolution" class="control-label"></label>
+                <input asp-for="ScreenResolution" class="form-control" />
+                <span asp-validation-for="ScreenResolution" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScanFrequency" class="control-label"></label>
+                <input asp-for="ScanFrequency" class="form-control" />
+                <span asp-validation-for="ScanFrequency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScreenTechnology" class="control-label"></label>
+                <input asp-for="ScreenTechnology" class="form-control" />
+                <span asp-validation-for="ScreenTechnology" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GraphicCard" class="control-label"></label>
+                <input asp-for="GraphicCard" class="form-control" />
+                <span asp-validation-for="GraphicCard" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AudioTechnology" class="control-label"></label>
+                <input asp-for="AudioTechnology" class="form-control" />
+                <span asp-validation-for="AudioTechnology" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Connector" class="control-label"></label>
+                <input asp-for="Connector" class="form-control" />
+                <span asp-validation-for="Connector" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WirelessConnectivity" class="control-label"></label>
+                <input asp-for="WirelessConnectivity" class="form-control" />
+                <span asp-validation-for="WirelessConnectivity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Webcam" class="control-label"></label>
+                <input asp-for="Webcam" class="form-control" />
+                <span asp-validation-for="Webcam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KeyboardLight" class="control-label"></label>
+                <input asp-for="KeyboardLight" class="form-control" />
+                <span asp-validation-for="KeyboardLight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size" class="control-label"></label>
+                <input asp-for="Size" class="form-control" />
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Material" class="control-label"></label>
+                <input asp-for="Material" class="form-control" />
+                <span asp-validation-for="Material" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Battery" class="control-label"></label>
+                <input asp-for="Battery" class="form-control" />
+                <span asp-validation-for="Battery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Os" class="control-label"></label>
+                <input asp-for="Os" class="form-control" />
+                <span asp-validation-for="Os" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReleaseTime" class="control-label"></label>
+                <input asp-for="ReleaseTime" class="form-control" />
+                <span asp-validation-for="ReleaseTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Article" class="control-label"></label>
+                <input asp-for="Article" class="form-control" />
+                <span asp-validation-for="Article" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+</div> *@
+
+
+<div class="container-app">
+            <div class="header">
+                <div class="box-left">
+                    <div class="change-size">
+                        <!-- fullsize -->
+                        <i class="fa-solid fa-expand"></i> 
+
+                        <!-- minsize -->
+                        <!-- <i class="fa-solid fa-compress"></i> -->
+
+                    </div>
+                    <div class="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+
+                <div class="box-right">
+                    <div class="bell">
+                        <i class="fa-regular fa-bell"></i>
+                        <span>5</span>
+                    </div>
+
+                    <div class="user">
+                        <div class="name">
+                            Trần Tân
+                        </div>
+
+                        <div class="avatar">
+                            <img src="https://demos.pixinvent.com/modern-html-admin-template/app-assets/images/portrait/small/avatar-s-19.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="add-product-page">
+                    <div class="title-top">
+                        <div class="title-left">
+                            <i class="fa-solid fa-list"></i>
+                            <span>Thêm Sản Phẩm Mới</span>
+                        </div>
+
+                        <div class="title-right">
+                            <a href="./Product_manage.html"><button class="btn-admin-common">Quay Lại</button></a>
+                        </div>
+                    </div>
+
+                    <form asp-action="Create" enctype="multipart/form-data">
+                        <div class="box-form">
+                            <div class="mb-3 row form-top">
+                                <div class="mb-3 col-md-6">
+                                    <label for="category" class="form-label">Danh Mục</label>
+                                    <select class="form-select" asp-for="CategoryId" id="category" asp-items="ViewBag.CategoryId" aria-label="Default select example">
+                                        
+                                    </select>
+                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                </div>
+                            
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="status" class="form-label">Tình Trạng</label>
+                                    <select class="form-select " asp-for="Status" id="status" aria-label="Default select example">
+                                        
+                                        <option value="Mới">Mới</option>
+                                        <option value="Like">Like New</option>
+                                    </select>
+                                    <span asp-validation-for="Status" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="status" class="form-label">Tình Trạng</label>
+                                    <select class="form-select " asp-for="TypeLaptop" id="status" aria-label="Default select example">
+                                        
+                                        <option value="Văn Phòng">Văn Phòng</option>
+                                        <option value="Gaming">Gaming</option>
+                                        <option value="Đồ Họa">Đồ Họa</option>
+                                    </select>
+                                    <span asp-validation-for="TypeLaptop" class="text-danger"></span>
+                                </div>
+                                
+                                <div class="mb-3 col-md-6">
+                                    <label for="productName" class="form-label">Tên Sản Phẩm</label>
+                                    <input asp-for="ProductName" type="text" class="form-control" id="productName" >
+                                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                                </div>
+                                
+                                
+                                <div class="mb-3 col-md-6">
+                                    <label for="oldPrice" class="form-label">Giá Bán Cũ</label>
+                                    <input type="number" asp-for="OldPrice" class="form-control" id="oldPrice"  onmousewheel="return false;" inputmode="numeric">
+                                    <span asp-validation-for="OldPrice" class="text-danger"></span>
+
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="discount" class="form-label">Giảm Giá</label>
+                                    <input type="number" asp-for="Discount" class="form-control" id="discount"  onmousewheel="return false;" inputmode="numeric">
+                                    <span asp-validation-for="Discount" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="price" class="form-label">Giá Bán</label>
+                                    <input type="number" asp-for="Price" class="form-control" id="userName" >
+                                    <span asp-validation-for="Price" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="quantity" class="form-label">Số Lượng Nhập</label>
+                                    <input type="number" asp-for="Quantity" class="form-control" id="quantity" >
+                                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                                </div>
+
+                                
+
+
+                            </div>
+
+                                <div class="mb-3 row">
+                                    <div class="images mb-3 col-md-6">
+                                        <div class="box-image">
+                                            <label for="Avatar" class="labelAvatar">
+                                                <img src="" alt="" id="uploadedImage_avatar">
+                                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                                <span>
+                                                    Chọn Ảnh Đại Diện
+                                                </span>
+                                            
+                                            </label>
+                                            <input type="file" id="Avatar" asp-for="MainImageFile" onchange="displayImage(this)">
+                                            <span asp-validation-for="MainImageFile" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="images mb-3 col-md-6">
+                                        <div class="box-image list-img">
+                                            <label for="fileDetail" class="">
+                                                <div id="selectedImagesContainer"></div>
+                                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                                <span>
+                                                    Chọn Ảnh Chi Tiết
+                                                </span>
+                                            
+                                            </label>
+                                            <input type="file" id="fileDetail" asp-for="ProductImageFiles"  multiple onchange="displayListImage(this)">
+                                            <span asp-validation-for="ProductImageFiles" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <div class="title-group-input mt-3 mb-3">
+                                        Bộ xử lý
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="cpuTechnology" class="form-label">Công Nghệ CPU</label>
+                                        <input id="cpuTechnology" asp-for="CpuTechnology" type="text" class="form-control"  >
+                                        <span asp-validation-for="CpuTechnology" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="kernel" class="form-label">Số Nhân</label>
+                                        <input id="kernel" asp-for="Kernel" type="text" class="form-control"  >
+                                        <span asp-validation-for="Kernel" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="threads" class="form-label">Số Luồng</label>
+                                        <input id="threads" asp-for="Threads" type="text" class="form-control"  >
+                                        <span asp-validation-for="Threads" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="processorSpeedCPU" class="form-label">Tốc Độ CPU</label>
+                                        <input id="processorSpeedCPU" asp-for="ProcessorSpeedCPU" type="text" class="form-control"  >
+                                        <span asp-validation-for="ProcessorSpeedCPU" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="maxSpeed" class="form-label">Tốc Độ Tối Đa</label>
+                                        <input id="maxSpeed" asp-for="MaxSpeed" type="text" class="form-control"  >
+                                        <span asp-validation-for="MaxSpeed" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="caching" class="form-label">Bộ Nhớ Đệm</label>
+                                        <input id="caching" asp-for="Caching" type="text" class="form-control"  >
+                                        <span asp-validation-for="Caching" class="text-danger"></span>
+                                    </div>
+
+                                    
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <div class="title-group-input mt-3 mb-3">
+                                        Bộ nhớ RAM, Ổ cứng
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="ram" class="form-label">RAM</label>
+                                        <input id="ram" asp-for="Ram" type="text" class="form-control"  >
+                                        <span asp-validation-for="Ram" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="typeRAM" class="form-label">Loại RAM</label>
+                                        <input id="typeRAM" asp-for="TypeRAM" type="text" class="form-control"  >
+                                        <span asp-validation-for="TypeRAM" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="RAMBusSpeed" class="form-label">Tốc độ Bus RAM</label>
+                                        <input id="RAMBusSpeed" asp-for="RAMBusSpeed" type="text" class="form-control"  >
+                                        <span asp-validation-for="RAMBusSpeed" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="maxRam" class="form-label">Hỗ Trợ RAM Tối Đa</label>
+                                        <input id="maxRam" asp-for="MaxRam" type="text" class="form-control"  >
+                                        <span asp-validation-for="MaxRam" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="HardDrive" class="form-label">Ổ Cứng</label>
+                                        <input id="HardDrive" asp-for="HardDrive" type="text" class="form-control"  >
+                                        <span asp-validation-for="HardDrive" class="text-danger"></span>
+                                    </div>
+
+                                    
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <div class="title-group-input mt-3 mb-3">
+                                        Màn Hình
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="screenSize" class="form-label">Màn Hình</label>
+                                        <input id="screenSize" asp-for="ScreenSize" type="text" class="form-control"  >
+                                        <span asp-validation-for="ScreenSize" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="screenResolution" class="form-label">Độ Phân Giải</label>
+                                        <input id="screenResolution" asp-for="ScreenResolution" type="text" class="form-control"  >
+                                        <span asp-validation-for="ScreenResolution" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="scanFrequency" class="form-label">Tần Số Quét</label>
+                                        <input id="scanFrequency" asp-for="ScanFrequency" type="text" class="form-control"  >
+                                        <span asp-validation-for="ScanFrequency" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="screenTechnology" class="form-label">Công Nghệ Màn Hình</label>
+                                        <input id="screenTechnology" asp-for="ScreenTechnology" type="text" class="form-control"  >
+                                        <span asp-validation-for="ScreenTechnology" class="text-danger"></span>
+                                    </div>
+
+                                    
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <div class="title-group-input mt-3 mb-3">
+                                        Đồ họa và Âm Thanh
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="graphicCard" class="form-label">Card Màn Hình</label>
+                                        <input id="graphicCard" asp-for="GraphicCard" type="text" class="form-control"  >
+                                        <span asp-validation-for="GraphicCard" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="audioTechnology" class="form-label">Công nghệ Âm Thanh</label>
+                                        <input id="audioTechnology" asp-for="AudioTechnology" type="text" class="form-control"  >
+                                        <span asp-validation-for="AudioTechnology" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <div class="title-group-input mt-3 mb-3">
+                                        Cổng kết nối & tính năng mở rộng
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="connector" class="form-label">Cổng Kết Nối</label>
+                                        <input id="connector" asp-for="Connector" type="text" class="form-control"  >
+                                        <span asp-validation-for="Connector" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="wirelessConnectivity" class="form-label">Kết Nối Không Dây</label>
+                                        <input id="wirelessConnectivity" asp-for="WirelessConnectivity" type="text" class="form-control"  >
+                                        <span asp-validation-for="WirelessConnectivity" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="webcam" class="form-label">Webcam</label>
+                                        <input id="webcam" asp-for="Webcam" type="text" class="form-control"  >
+                                        <span asp-validation-for="Webcam" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="keyboardLight" class="form-label">Đèn Bàn Phím</label>
+                                        <input id="keyboardLight" asp-for="KeyboardLight" type="text" class="form-control"  >
+                                        <span asp-validation-for="KeyboardLight" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <div class="title-group-input mt-3 mb-3">
+                                        Kích thước & khối lượng
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="size" class="form-label">Kích Thước</label>
+                                        <input id="size" asp-for="Size" type="text" class="form-control"  >
+                                        <span asp-validation-for="Size" class="text-danger"></span>
+
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="weight" class="form-label">Khối Lượng</label>
+                                        <input id="weight" asp-for="Weight" type="text" class="form-control"  >
+                                        <span asp-validation-for="Weight" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="material" class="form-label">Chất Liệu</label>
+                                        <input id="material" asp-for="Material" type="text" class="form-control"  >
+                                        <span asp-validation-for="Material" class="text-danger"></span>
+                                    </div>
+
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <div class="title-group-input mt-3 mb-3">
+                                        Thông Tin Khác
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="battery" class="form-label">Thông Tin Pin</label>
+                                        <input id="battery" asp-for="Battery" type="text" class="form-control"  >
+                                        <span asp-validation-for="Battery" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="os" class="form-label">Hệ Điều Hành</label>
+                                        <input id="os" asp-for="Os" type="text" class="form-control"  >
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="releaseTime" class="form-label">Thời Gian Ra Mắt</label>
+                                        <input id="releaseTime" asp-for="ReleaseTime" type="text" class="form-control"  >
+                                        <span asp-validation-for="ReleaseTime" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <div class="title-group-input mt-3 mb-3">
+                                        Bài Viết Về Sản Phẩm
+                                    </div>
+                                    <div class="mb-3 mt-3 col-md-12">
+                                        <textarea asp-for="Article">
+                                            Welcome to TinyMCE!
+                                        </textarea>
+                                    </div>
+                                </div>
+
+                                <div class="user-action-bottom">
+                                    <button class="back">
+                                        Quay Lại
+                                    </button>
+
+                                    <button type="submit" class="add">
+                                        Thêm Sản Phẩm
+                                    </button>
+                                </div>
+                            
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
