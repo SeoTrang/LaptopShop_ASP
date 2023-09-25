@@ -64,54 +64,54 @@ namespace LapTopShop.Controllers
         // POST: Category/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> Create([Bind("Name,MainImageFile,Avatar")] Category category)
-        // {
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Name,MainImageFile,Avatar")] Category category)
+        {
 
-        //     if (category.MainImageFile != null)
-        //     {
-        //         System.Console.WriteLine("file name : "+category.MainImageFile.FileName);
-        //         System.Console.WriteLine("Đã lấy được ảnh từ MainImageFile. :  "+_env.WebRootPath);
+            if (category.MainImageFile != null)
+            {
+                System.Console.WriteLine("file name : "+category.MainImageFile.FileName);
+                System.Console.WriteLine("Đã lấy được ảnh từ MainImageFile. :  "+_env.WebRootPath);
 
-        //         var filePath = Path.Combine(_env.WebRootPath,"uploads",category.MainImageFile.FileName);
-        //         if (System.IO.File.Exists(filePath))
-        //         {
-        //             // Nếu tệp đã tồn tại, bạn có thể xử lý ghi đè tệp tại đây.
-        //             System.Console.WriteLine("Tệp đã tồn tại. Thực hiện ghi đè.");
+                var filePath = Path.Combine(_env.WebRootPath,"uploads",category.MainImageFile.FileName);
+                if (System.IO.File.Exists(filePath))
+                {
+                    // Nếu tệp đã tồn tại, bạn có thể xử lý ghi đè tệp tại đây.
+                    System.Console.WriteLine("Tệp đã tồn tại. Thực hiện ghi đè.");
 
-        //             // Xóa tệp hiện có trước khi ghi đè
-        //             System.IO.File.Delete(filePath);
-        //         }
+                    // Xóa tệp hiện có trước khi ghi đè
+                    System.IO.File.Delete(filePath);
+                }
 
-        //         using var FileStream = new FileStream(filePath,FileMode.Create);
-        //         await category.MainImageFile.CopyToAsync(FileStream);
+                using var FileStream = new FileStream(filePath,FileMode.Create);
+                await category.MainImageFile.CopyToAsync(FileStream);
 
-        //         var urlAvatar = Path.Combine("/uploads",category.MainImageFile.FileName);
-        //         System.Console.WriteLine("Link anh : " + urlAvatar);
-        //         if(string.IsNullOrEmpty(urlAvatar)) return NotFound();
+                var urlAvatar = Path.Combine("/uploads",category.MainImageFile.FileName);
+                System.Console.WriteLine("Link anh : " + urlAvatar);
+                if(string.IsNullOrEmpty(urlAvatar)) return NotFound();
                 
 
-        //         // Xử lí ảnh ở đây, ví dụ: lưu ảnh vào thư mục, đổi tên ảnh, v.v.
-        //         // Sau đó, bạn có thể lưu đường dẫn của ảnh vào cơ sở dữ liệu nếu cần.
-        //         category.Avatar = urlAvatar;
+                // Xử lí ảnh ở đây, ví dụ: lưu ảnh vào thư mục, đổi tên ảnh, v.v.
+                // Sau đó, bạn có thể lưu đường dẫn của ảnh vào cơ sở dữ liệu nếu cần.
+                category.Avatar = urlAvatar;
 
-        //         // return View();
-        //         _context.Add(category);
-        //         await _context.SaveChangesAsync();
-        //         return RedirectToAction(nameof(Index));
+                // return View();
+                _context.Add(category);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
 
-        //     }
+            }
 
-        //     return View();
-        //     // if (ModelState.IsValid)
-        //     // {
-        //         // _context.Add(category);
-        //         // await _context.SaveChangesAsync();
-        //         // return RedirectToAction(nameof(Index));
-        //     // }
-        //     // return View(category);
-        // }
+            return View();
+            // if (ModelState.IsValid)
+            // {
+                // _context.Add(category);
+                // await _context.SaveChangesAsync();
+                // return RedirectToAction(nameof(Index));
+            // }
+            // return View(category);
+        }
 
         // GET: Category/Edit/5
         public async Task<IActionResult> Edit(int? id)

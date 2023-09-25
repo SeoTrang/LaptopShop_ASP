@@ -215,6 +215,16 @@ html{
     
 }
 
+.header .box-right .login{
+    display: flex;
+    align-items: center;
+}
+
+.header .box-right .login span{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .header .box-right .hotline span{
     margin-left: 10px;
 }
@@ -234,8 +244,8 @@ html{
     transition: 0.5s;
     position: absolute;
     top: 100%;
-    left: -50%;
-    width: 200%;
+    left: -4em;
+    width: 12em;
     height: 7em;
     z-index: 9999;
     padding-top: 0.5em;
@@ -244,7 +254,7 @@ html{
 .header .account .account-action{
     
     border-radius: 5px;
-    width: 100%;
+    
     background-color: #ffffff;
     padding:  0.3em 0.2em;
     box-shadow: 1px 2px 13px -3px rgba(59,89,152,1);

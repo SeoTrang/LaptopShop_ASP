@@ -1,0 +1,137 @@
+@page
+@* @model LapTopShop.Models.Cart *@
+@{
+    @* ViewData["Title"] = "Tiêu đề trang"; *@
+    int index = 1;
+    @* decimal total = 0; // Khởi tạo biến tổng *@
+    decimal total = 0; // Khởi tạo biến tổng
+   
+
+}
+
+@* <h1>@ViewData["Title"]</h1> *@
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="~/css/cart.css">
+}
+
+
+
+<div class="body">
+            
+            <div class="contentApp">
+
+                <div class="route">
+                    <div><i class="fa-solid fa-house"></i></div>
+                    <div>/</div>
+                    <div>Giỏ hàng</div>
+
+                </div>
+                 
+
+                @if (ViewBag.Cart != null)
+                    {
+                        var cart = ViewBag.Cart as LapTopShop.Models.Cart;
+                        // Sử dụng dữ liệu trong ViewBag
+                        @* <h1>@cart.Code</h1> *@
+                        <!-- Hiển thị thông tin từ cart -->
+                        <div class="cart">
+                    
+                            <div class="content-cart">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="stt" scope="col">
+                                            <div >
+                                                TT
+                                            </div>
+                                        </th>
+                                        <th class="img" scope="col">
+                                            <div >
+                                                Ảnh
+                                            </div>
+                                        </th>
+                                        <th class="product-name" scope="col">
+                                            <div >
+                                                Tên SP
+                                            </div>
+                                        </th>
+                                        <th class="price" scope="col">
+                                            <div >
+                                                Giá SP
+                                            </div>
+                                        </th>
+                                        <th class="quatity" scope="col">
+                                            <div >
+                                                Số Lượng
+                                            </div>
+                                        </th>
+                                        <th class="total-price" scope="col">
+                                            <div >
+                                                Thành Tiền
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in cart.CartItems){
+                                            <tr>
+                                                <td class="stt">@index</td>
+                                                <td class="img">
+                                                    <div >
+                                                        <img src="@item.Product.Avatar" alt="">
+                                                    </div>
+                                                </td>
+                                                <td  class="product-name" >
+                                                    <div>
+                                                        @item.Product.ProductName
+                                                    </div>
+                                                </td>
+                                                <td class="price"><div>@item.Product.Price.ToString("N0")₫</div></td>
+                                                <td class="quatity">
+                                                    <div class="form-input">
+                                                        <button class="btn-minus"><i class="fa-solid fa-minus"></i></button>
+                                                        <input class="no-spin" readonly type="number" min="1" value="@item.Count">
+                                                        <button class="btn-minus"><i class="fa-solid fa-plus"></i></button>
+                    
+                                                    </div>
+                                                </td>
+                                                <!-- Tính giá trị của từng sản phẩm và cộng vào biến tổng -->
+                                                @* var itemTotal = item.Product.Price * item.Count;
+                                                total += itemTotal; *@
+                                                <!-- Hiển thị giá trị cho từng sản phẩm -->
+                                                <td class="total-price">@String.Format("{0:N0}₫", item.Product.Price * item.Count)</td>
+                                            </tr>
+
+                                            index++;
+                                        }
+                                    
+
+                                    
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="action-bottom">
+                                <td class="total-price">@{
+                                    
+                                    foreach (var item in cart.CartItems) {
+                                        total += item.Product.Price * item.Count; // Tính giá trị của từng sản phẩm và cộng vào biến tổng
+                                    }
+                                    @String.Format("{0:N0}₫", total) // Hiển thị tổng giá trị với dấu phân cách
+                                }</td>
+
+                                <a asp-action="FormInput" asp-controller="Order" asp-route-TotalPrice="@total" asp-route-CartId="@cart.Id" class="btn-buy-now">
+                                    <button class="btn-common">
+                                        Mua Hàng
+                                    </button>
+                                </a>
+                            </div>
+
+
+                        </div>
+                    }
+               
+
+            </div>
+        </div>

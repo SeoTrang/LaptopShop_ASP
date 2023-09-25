@@ -24,6 +24,12 @@
                     <div class="line">
                         
                     </div>
+                    @if (TempData["Message"] != null)
+                    {
+                        <div class="alert alert-info">
+                            @TempData["Message"]
+                        </div>
+                    }
 
                     @* @foreach(var img in @Model.product.ListFileDetail){
                                         <div >
@@ -102,24 +108,33 @@
 
                             <div class="user-action">
 
+                                <form asp-action="AddCart" method="post" asp-controller="Cart">
                                 <div class="form">
                                     <div class="title">Số lượng : </div>
                                     <div class="form-input">
-                                        <button class="btn-minus"><i class="fa-solid fa-minus"></i></button>
-                                        <input class="no-spin" readonly type="number" min="1" value="1">
-                                        <button class="btn-minus"><i class="fa-solid fa-plus"></i></button>
+                                        <div class="btn-action btn-minus" onclick="minus(this)"><i class="fa-solid fa-minus"></i></div>
+                                        <input class="no-spin" readonly type="number" min="1" name="Count" value="1">
+                                        <div class="btn-action btn-minus" onclick="plus(this)"><i class="fa-solid fa-plus"></i></div>
     
                                     </div>
                                 </div>
 
-                                <div class="btn-action-bottom">
-                                    <button class="btn-buy-now">
-                                        Mua Ngay
-                                    </button>
-                                    <button class="btn-add-to-cart">
-                                        Thêm Vào Giỏ Hàng
-                                    </button>
+                                <div class="box-action">
+                                    
+                                        <input type="text" class="d-none" name="ProductId" value="@Model.product.Id">
+                                        <input type="text" class="d-none" name="Url" value="/Detail/Index/@Model.product.Id">
+                                        <div class="btn-action-bottom">
+                                            <button class="btn-buy-now">
+                                                Mua Ngay
+                                            </button>
+                                            <button type="submit" class="btn-add-to-cart">
+                                                Thêm Vào Giỏ Hàng
+                                            </button>
+                                        </div>
+                                    
                                 </div>
+
+                                </form>
                             </div>
 
                             <div class="specifications">
@@ -251,3 +266,7 @@
 
             </div>
         </div>
+
+@section Scripts {
+    <script src="~/js/deltail.js"></script>
+}

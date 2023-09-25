@@ -1,0 +1,132 @@
+
+
+
+.boxAuth{
+    margin: 0 auto;
+    width: 35%;
+    background-color: #ffffff;
+    padding: 1em 3em;
+    /* font-size: 1em; */
+    border-radius: 10px;
+    box-shadow: 1px 2px 13px -3px rgba(59,89,152,1);
+    -webkit-box-shadow: 1px 2px 13px -3px rgba(59,89,152,1);
+    -moz-box-shadow: 1px 2px 13px -3px rgba(59,89,152,1);
+
+   
+    
+}
+.auth .logo img{
+    width: 100px;
+}
+.boxAuth  button{
+        width: 100%;
+        height: 2.8em;
+        border: none;
+        border-radius: 10px;
+
+}
+
+.boxAuth a{
+        text-decoration: underline !important;
+        margin-left: 0.3em;
+}
+.content{
+    
+    
+}
+.authTop{
+    text-align: center;
+}
+.logo{
+    text-align: center;
+}
+.authTitle{
+
+
+}
+.title{
+
+}
+.description{
+
+}
+.formAuth{
+    margin-top: 2em;
+
+}
+.form{
+    margin-top: 1em;
+    label{
+        font-weight: 450;
+    }
+}
+
+.formAction{
+    margin-top: 2em;
+    text-align: center;
+}
+.btnSignIn{
+    
+}
+
+.btnSignIn button{
+        background-color: #E94560;
+        color: #ffffff;
+    }
+.btnSignUp{
+    
+}
+.btnSignUp button{
+        background-color: #E94560;
+        color: #ffffff;
+    }
+.lineOr{
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.line{
+    width: 30%;
+    height: 1px;
+    background-color: #576673;
+}
+.or{
+    margin: 0 0.3em;
+}
+
+.btnSignInGoogle{
+    
+}
+
+.btnSignInGoogle button{
+        margin-top: 1em;
+        background-color: #3B5998;
+        color: #ffffff;
+    }
+.btnSignInFacebook{
+    
+}
+
+.btnSignInFacebook button{
+        margin-top: 1em;
+        background-color: #4285F4;
+        color: #ffffff;
+    }
+.authBottom{
+    margin-top: 2em;
+    text-align: center;
+}
+.signUp{
+    
+}
+.forgotPassword{
+    margin-top: 1em;
+    min-height: 3em;
+    line-height: 3em;
+}
+
+.signIn{
+    min-height: 3em;
+
+}

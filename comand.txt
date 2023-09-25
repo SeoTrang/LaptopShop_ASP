@@ -1,3 +1,5 @@
+dotnet restore
+
 // install package
 dotnet tool install --global dotnet-ef
 dotnet tool install --global dotnet-aspnet-codegenerator
@@ -45,7 +47,8 @@ dotnet ef migrations remove
 dotnet ef database update 
 
 // Identity
-dotnet aspnet-codegenerator identity -dc Identity2.Model.AuthDbContext // phát sinh giao diện cho identity
+dotnet aspnet-codegenerator identity -dc LapTopShop.Models.dbContext // phát sinh giao diện cho identity
+LapTopShop.Areas.
 
 dotnet new gitignore
 
@@ -66,6 +69,9 @@ dotnet aspnet-codegenerator controller -name CategoryController -namespace LapTo
 
 dotnet aspnet-codegenerator controller -name ProductController -namespace LapTopShop.Areas.Admin.Controllers -m LapTopShop.Models.Product -udl -dc dbContext -outDir Areas/Admin/Controllers
 
+dotnet aspnet-codegenerator controller -name CartController -namespace LapTopShop.Controllers -m LapTopShop.Models.Cart -udl -dc dbContext -outDir Controllers
+
+dotnet aspnet-codegenerator controller -name CartItemController -namespace LapTopShop.Areas.Admin.Controllers -m LapTopShop.Models.CartItem -udl -dc dbContext -outDir Areas/Admin/Controllers
 
 
 
@@ -81,3 +87,14 @@ dotnet aspnet-codegenerator controller -name ProductController -namespace LapTop
 // biên dịch scss sang css 
 gulp sass
 https://xuanthulab.net/asp-net-core-su-dung-gulp-js-build-scss-sass-thanh-css.html
+
+
+
+
+@section Scripts {
+    <script src="~/js/my-script.js"></script>
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="css/my-page.css">
+}

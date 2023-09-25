@@ -1,0 +1,66 @@
+@model LapTopShop.Models.Order
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="~/css/FormInput.css">
+}
+
+<div class="body">
+            <div class="contentApp">
+
+                <div class="route">
+                    <div><i class="fa-solid fa-house"></i></div>
+                    <div>/</div>
+                    <div>Đặt Hàng</div>
+
+                </div>
+                 
+
+
+               @if(ViewBag.CartId != null && ViewBag.TotalPrice != null){
+                <form  method="post" asp-action="FormInput" asp-controller="Order" asp-route-CartId="@ViewBag.CartId" asp-route-TotalPrice="@ViewBag.TotalPrice" class="cartInput">
+
+                    <div class="form-input mt-3 mb-3">
+                        <div class="title">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <h6>Nhập địa chỉ nhận hàng</h6>
+                        </div>
+                        <div class="container-form mt-3">
+                            <div class="mb-3 row form-top">
+                                <div class="mb-3 col-md-6">
+                                    <label for="email" class="form-label">Địa chỉ email</label>
+                                    <input asp-for="Email" type="email" required class="form-control" id="email" >
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="userName" class="form-label">Tên người nhận</label>
+                                    <input asp-for="Receiver" type="text" class="form-control" id="userName" >
+                                    
+                                    <span asp-validation-for="Receiver" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="phoneNumber" class="form-label">Số điện thoại người nhận</label>
+                                    <input asp-for="Phone" type="number" class="form-control" id="phoneNumber"  onmousewheel="return false;" inputmode="numeric">
+                                    <span asp-validation-for="Phone" class="text-danger"></span>
+
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="address" class="form-label">Địa chỉ nhận hàng</label>
+                                    <input asp-for="Address" type="text" class="form-control" id="address" >
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="note" class="form-label">Ghi chú</label>
+                                <textarea asp-for="Note" class="form-control" id="note" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-bottom mt-4">
+                        <a asp-action="Index" asp-controller="Cart" class="btn-back">Giỏ Hàng</a>
+                        <button type="submit" class="btn-order">Đặt Hàng</button>
+                    </div>
+               </form>
+               }
+
+            </div>
+        </div>

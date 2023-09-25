@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="~/css/admin/Category_manage.css">
     <link rel="stylesheet" href="~/css/admin/product.manage.css">
     <link rel="stylesheet" href="~/css/admin/add_product.css">
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <div id="admin">
@@ -29,7 +30,7 @@
             </div>
             <ul class="mt-3 list-item">
                 <li class="mt-2">
-                    <a href="">
+                    <a href="/admin">
                         <i class="fa-solid fa-gauge-high"></i>
                         Trang Chủ
                     </a>
@@ -42,7 +43,7 @@
 
                 </li>
                 <li class="mt-2">
-                    <a href="">
+                    <a asp-action="Index" asp-controller="OrderManage">
                         <i class="fa-solid fa-bag-shopping"></i>
                         Quản Lý Đơn Đặt Hàng
                     </a>
