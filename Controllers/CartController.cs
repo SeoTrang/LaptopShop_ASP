@@ -131,6 +131,7 @@ namespace LapTopShop.Controllers
                     cart.UserId = user.Id;
                     await _context.Carts.AddAsync(cart);
                     await _context.SaveChangesAsync();
+                    cartId = cart.Id;
 
                     CartItem cartItem = new CartItem();
                     cartItem.Count = Count;
