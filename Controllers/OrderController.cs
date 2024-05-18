@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using LapTopShop.Models;
+using Microsoft.EntityFrameworkCore;
 using LapTopShop.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace LapTopShop.Controllers
 {
@@ -19,13 +19,13 @@ namespace LapTopShop.Controllers
     {
          private readonly dbContext _context;
         private readonly IWebHostEnvironment _env;
-        private readonly ILogger<CartController> _logger;
+        private readonly ILogger<OrderController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
 
         public OrderController(
             dbContext context,
             IWebHostEnvironment env,
-            ILogger<CartController> logger,
+            ILogger<OrderController> logger,
             UserManager<ApplicationUser> userManager) // Inject UserManager<ApplicationUser>
         {
             _context = context;
@@ -34,8 +34,35 @@ namespace LapTopShop.Controllers
             _userManager = userManager; // Khởi tạo UserManager
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var user = await _userManager.GetUserAsync(this.User);
+            System.Console.WriteLine("user is : ");
+            System.Console.WriteLine(user);
+            System.Console.WriteLine(user.Id);
+            if (user == null)
+            {
+                return Redirect("/login");
+            }
+            // var carts = await _context.Carts
+            //     .Where(c => c.UserId == user.Id)
+            //     .Include(c => c.CartItems)
+            //     .ThenInclude(ci => ci.Product)
+            //     .FirstOrDefaultAsync();
+
+            var orders = await _context.Orders
+            .Where(o => o.UserId == user.Id)
+            .FirstOrDefaultAsync();
+
+            if (orders == null)
+            {
+                // Nếu không tìm thấy giỏ hàng, bạn có thể thực hiện xử lý tương ứng ở đây
+                // Ví dụ: trả về một trang thông báo không có giỏ hàng
+                return View();
+            }
+            ViewBag.Order = orders;
+
+            Console.WriteLine(orders);
             return View();
         }
 

@@ -23,6 +23,9 @@ namespace LapTopShop.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            // xóa tiền tố khi tạo các bảng identity mặc định ví dụ table user của identity sẽ là AspNetUsers 
+            //  sẽ đổi thành Users
             base.OnModelCreating(modelBuilder);
              foreach (var entityType in modelBuilder.Model.GetEntityTypes()){
                 var tableName = entityType.GetTableName();

@@ -9,6 +9,7 @@ html{
 
 :root {
     --animate-duration: 3s;
+    --main-text-color: #0f3460;
   }
 
 
@@ -18,6 +19,17 @@ html{
     color: #0f3460;
     background-color: #ffffff;
 
+}
+
+.shadow-main{
+    box-shadow: 0 30px 50px #052f281f;
+}
+
+.w-98-custom{
+    width: 98%;
+}
+.w-96-custom{
+    width: 96%;
 }
 
 .body{

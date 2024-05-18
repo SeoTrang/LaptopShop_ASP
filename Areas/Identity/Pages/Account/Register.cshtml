@@ -111,45 +111,33 @@
 
                 <div class="formAuth">
                     <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                        <div class="form">
-                            <label for="username" class="form-label">Tên Của Bạn</label>
-                            <input asp-for="Input.Name" class="form-control" id="username" placeholder="">
-                            <span asp-validation-for="Input.Name" class="text-danger"></span>
-                        </div>
-                        <div class="form">
-                            <label for="email" class="form-label">Email</label>
-                            <input asp-for="Input.Email" class="form-control" id="email" placeholder="">
-                            <span asp-validation-for="Input.Email" class="text-danger"></span>
-                        </div>
-                        <div class="form">
-                            <label for="pass" class="form-label">Mật Khẩu</label>
-                            <input asp-for="Input.Password" class="form-control" id="pass" placeholder="">
-                            <span asp-validation-for="Input.Password" class="text-danger"></span>
-                        </div>
-                        <div class="form">
-                            <label for="confirmPassword" class="form-label">Nhập Lại Mật Khẩu</label>
-                            <input asp-for="Input.ConfirmPassword" class="form-control" id="confirmPassword" placeholder="">
-                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-                        </div>
-                        @* <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Đăng Ký</button> *@
-                        <div class="formAction">
-                            <div class="btnSignUp">
-                                <button type="submit">Đăng Ký</button>
-                            </div>
-                            <div class="lineOr">
-                                <div class="line"></div>
-                                <div class="or">Hoặc</div>
-                                <div class="line"></div>
-                            </div>
+    <div class="form">
+        <label for="username" class="form-label">Tên Của Bạn</label>
+        <input asp-for="Input.Name" class="form-control" id="username" placeholder="">
+        <span asp-validation-for="Input.Name" class="text-danger"></span>
+    </div>
+    <div class="form">
+        <label for="email" class="form-label">Email</label>
+        <input asp-for="Input.Email" class="form-control" id="email" placeholder="">
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+    <div class="form">
+        <label for="pass" class="form-label">Mật Khẩu</label>
+        <input asp-for="Input.Password" class="form-control" id="pass" placeholder="">
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </div>
+    <div class="form">
+        <label for="confirmPassword" class="form-label">Nhập Lại Mật Khẩu</label>
+        <input asp-for="Input.ConfirmPassword" class="form-control" id="confirmPassword" placeholder="">
+        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div class="formAction">
+        <div class="btnSignUp">
+            <button type="submit">Đăng Ký</button>
+        </div>
+    </div>
+</form>
 
-                            <div class="btnSignInGoogle">
-                                <button>Đăng nhập bằng Google</button>
-                            </div>
-                            <div class="btnSignInFacebook">
-                                <button>Đăng nhập bằng Facebook</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
 
                 

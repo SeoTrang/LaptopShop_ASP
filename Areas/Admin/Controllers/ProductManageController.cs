@@ -134,7 +134,7 @@ namespace LapTopShop.Areas.Admin.Controllers
 
                         using var FileStream = new FileStream(filePath,FileMode.Create);
                         await product.MainImageFile.CopyToAsync(FileStream);
-
+                        
                         var urlAvatar = Path.Combine("/uploads",product.MainImageFile.FileName);
                         // System.Console.WriteLine("Link anh : " + urlAvatar);
 

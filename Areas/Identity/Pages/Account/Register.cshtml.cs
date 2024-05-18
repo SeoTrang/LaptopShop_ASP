@@ -116,73 +116,78 @@ namespace LapTopShop.Areas.Identity.Pages.Account
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+{
+    try
+    {
+        returnUrl ??= Url.Content("~/");
+
+        ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+        Console.WriteLine("----------------------------debug model valid:  " + ModelState.IsValid);
+        if (ModelState.IsValid)
         {
-            try
-            {
-                returnUrl ??= Url.Content("~/");
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-            if (ModelState.IsValid)
-            {
-                var user = CreateUser();
-                user.Name = Input.Name; // Gán giá trị Name từ InputModel
-                // await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-                // await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-                // var result = await _userManager.CreateAsync(user, Input.Password);
+            var user = CreateUser();
+            user.Name = Input.Name; // Gán giá trị Name từ InputModel
+            _logger.LogDebug("----------------------------debug user:  " + user);
+            await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+            await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+            var result = await _userManager.CreateAsync(user, Input.Password);
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-                var result = await _userManager.CreateAsync(user, Input.Password);
-                // if(result.Succeeded){
-                //     return Redirect("/");
-                // }
-                if (result.Succeeded)
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("User created a new account with password.");
+
+                var userId = await _userManager.GetUserIdAsync(user);
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                var callbackUrl = Url.Page(
+                    "/Account/ConfirmEmail",
+                    pageHandler: null,
+                    values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
+                    protocol: Request.Scheme);
+
+                await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                if (_userManager.Options.SignIn.RequireConfirmedAccount)
                 {
-                    _logger.LogInformation("User created a new account with password.");
-
-                    var userId = await _userManager.GetUserIdAsync(user);
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                    var callbackUrl = Url.Page(
-                        "/Account/ConfirmEmail",
-                        pageHandler: null,
-                        values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-                        protocol: Request.Scheme);
-
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
-                    if (_userManager.Options.SignIn.RequireConfirmedAccount)
-                    {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
-                    }
-                    else
-                    {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
-                    }
-                }else{
-                    _logger.LogError("Loi "+result.Errors);
-                    foreach (var error in result.Errors)
-                    {
-                        _logger.LogError("loi :",string.Empty, error.Description);
-                    }
+                    return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
                 }
+                else
+                {
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return LocalRedirect(returnUrl);
+                }
+            }
+            else
+            {
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
+                    _logger.LogError("Registration error: {Error}", error.Description);
                 }
             }
-
-            // If we got this far, something failed, redisplay form
-            return Page();
-            }
-            catch (System.Exception)
+        }
+        else
+        {
+            foreach (var modelStateKey in ModelState.Keys)
             {
-                
-                throw;
+                var modelStateVal = ModelState[modelStateKey];
+                foreach (var error in modelStateVal.Errors)
+                {
+                    _logger.LogError("ModelState error: {Error}", error.ErrorMessage);
+                }
             }
         }
 
+        // If we got this far, something failed, redisplay form
+        return Page();
+    }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, "Unexpected error occurred during registration.");
+        throw;
+    }
+}
         private ApplicationUser CreateUser()
         {
             try

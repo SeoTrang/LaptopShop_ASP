@@ -13,7 +13,9 @@ namespace LapTopShop.Models
         [Column(TypeName ="nvarchar(100)")]
         public string Name { get; set; }
 
-        
+       // Không nên lưu mật khẩu trực tiếp dưới dạng plain text
+    // [Column(TypeName ="nvarchar(100)")]
+    // public string Password { get; set; }
         
     }
 }

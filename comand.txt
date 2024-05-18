@@ -1,5 +1,8 @@
 dotnet restore
 
+dotnet build
+
+
 // install package
 dotnet tool install --global dotnet-ef
 dotnet tool install --global dotnet-aspnet-codegenerator
@@ -98,3 +101,23 @@ https://xuanthulab.net/asp-net-core-su-dung-gulp-js-build-scss-sass-thanh-css.ht
 @section Styles {
     <link rel="stylesheet" type="text/css" href="css/my-page.css">
 }
+
+
+
+
+
+
+///////////////////////////////////
+controller: Đây là lệnh để tạo một controller.
+
+-name CategoryController: Chỉ định tên của controller mà bạn muốn tạo. Trong trường hợp này, tên của controller sẽ là CategoryController.
+
+-namespace LapTopShop.Controllers: Xác định không gian tên (namespace) mà controller mới sẽ thuộc về. Ở đây, nó sẽ là LapTopShop.Controllers.
+
+-m LapTopShop.Models.Category: Chỉ định model mà controller sẽ dựa trên. Ở đây, model là Category trong namespace LapTopShop.Models.
+
+-udl: Tùy chọn này viết tắt của use default layout. Nó chỉ định rằng controller mới sẽ sử dụng layout mặc định cho các view.
+
+-dc dbContext: Chỉ định DbContext sẽ được sử dụng bởi controller này. Ở đây, DbContext có tên là dbContext.
+
+-outDir Controllers/: Xác định thư mục đầu ra nơi mà controller sẽ được tạo ra. Ở đây, thư mục đầu ra là Controllers/.

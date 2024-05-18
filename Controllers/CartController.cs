@@ -45,6 +45,9 @@ namespace LapTopShop.Controllers
             //     .ToListAsync();
 
             var user = await _userManager.GetUserAsync(this.User);
+            System.Console.WriteLine("user in cart: ");
+            System.Console.WriteLine(user);
+            System.Console.WriteLine(user.Id);
             if (user == null)
             {
                 return Redirect("/login");

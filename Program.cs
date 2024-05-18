@@ -46,13 +46,35 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
-    options.Password.RequireUppercase = false;
+     options.Password.RequireDigit = false; // Không bắt phải có số
+    options.Password.RequireLowercase = false; // Không bắt phải có chữ thường
+    options.Password.RequireNonAlphanumeric = false; // Không bắt ký tự đặc biệt
+    options.Password.RequireUppercase = false; // Không bắt buộc chữ in
+    options.Password.RequiredLength = 3; // Số ký tự tối thiểu của password
+    options.Password.RequiredUniqueChars = 1; // Số ký tự riêng biệt
+
+    // Cấu hình Lockout - khóa user
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes (5); // Khóa 5 phút
+    options.Lockout.MaxFailedAccessAttempts = 10; // Thất bại 5 lầ thì khóa
+    options.Lockout.AllowedForNewUsers = true;
+
+    // Cấu hình về User.
+    options.User.AllowedUserNameCharacters = // các ký tự đặt tên user
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+    options.User.RequireUniqueEmail = true;  // Email là duy nhất
+
+    // Cấu hình đăng nhập.
+    options.SignIn.RequireConfirmedEmail = false;            // Cấu hình xác thực địa chỉ email (email phải tồn tại)
+    options.SignIn.RequireConfirmedPhoneNumber = false;     // Xác thực số điện thoại
 });
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/login"; // Đặt trang đăng nhập mặc định
     // Các cấu hình khác ở đây...
+    options.AccessDeniedPath = "/access-denied"; // Đặt trang truy cập bị từ chối nếu cần
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60); // Thời gian hết hạn của cookie
+    options.SlidingExpiration = true; // Gia hạn cookie nếu người dùng hoạt động
 });
 
 // /Identity/Account/Login
@@ -74,6 +96,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 
 
