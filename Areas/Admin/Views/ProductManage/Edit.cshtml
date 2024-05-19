@@ -4,12 +4,41 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
 
-<h4>Product</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container-app">
+    <div class="header">
+                <div class="box-left">
+                    <div class="change-size">
+                        <!-- fullsize -->
+                        <i class="fa-solid fa-expand"></i> 
+
+                        <!-- minsize -->
+                        <!-- <i class="fa-solid fa-compress"></i> -->
+
+                    </div>
+                    <div class="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+
+                <div class="box-right">
+                    <div class="bell">
+                        <i class="fa-regular fa-bell"></i>
+                        <span>5</span>
+                    </div>
+
+                    <div class="user">
+                        <div class="name">
+                            Trần Tân
+                        </div>
+
+                        <div class="avatar">
+                            <img src="https://demos.pixinvent.com/modern-html-admin-template/app-assets/images/portrait/small/avatar-s-19.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+     <div class="content">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -194,11 +223,22 @@
                 <span asp-validation-for="Article" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="TypeLaptop" class="control-label"></label>
+                <input asp-for="TypeLaptop" class="form-control" />
+                <span asp-validation-for="TypeLaptop" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3 mb-5">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
-    </div>
+     </div>
 </div>
+
+@* <div class="row">
+    <div class="col-md-4">
+        
+    </div>
+</div> *@
 
 <div>
     <a asp-action="Index">Back to List</a>

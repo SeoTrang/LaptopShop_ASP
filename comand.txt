@@ -61,6 +61,13 @@ dotnet aspnet-codegenerator area Admin
 
 
 
+dotnet new page -n Index -o Areas/Admin/Pages/Role --namespace LapTopShop.Areas.Admin.Role 
+dotnet new page -n Create -o Areas/Admin/Pages/Role --namespace LapTopShop.Areas.Admin.Role 
+-n name Index: page
+-o output
+-na: namespace
+
+
 // phát sinh crud bằng lệnh :
 
 dotnet aspnet-codegenerator controller -name CategoryController -namespace LapTopShop.Controllers -m LapTopShop.Models.Category -udl -dc dbContext -outDir Controllers/

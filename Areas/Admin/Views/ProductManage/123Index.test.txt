@@ -1,0 +1,246 @@
+@*
+
+<div class="container-app">
+    
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OldPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avatar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CpuTechnology)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kernel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Threads)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcessorSpeedCPU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxSpeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Caching)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ram)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeRAM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RAMBusSpeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxRam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HardDrive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScreenSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScreenResolution)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScanFrequency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScreenTechnology)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GraphicCard)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AudioTechnology)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Connector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WirelessConnectivity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Webcam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyboardLight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Material)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Battery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Os)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleaseTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Article)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OldPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Avatar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CpuTechnology)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kernel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Threads)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcessorSpeedCPU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxSpeed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Caching)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ram)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeRAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RAMBusSpeed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxRam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HardDrive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScreenSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScreenResolution)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScanFrequency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScreenTechnology)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GraphicCard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AudioTechnology)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Connector)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WirelessConnectivity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Webcam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeyboardLight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Battery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Os)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseTime)
+            </td>
+            <td>
+                @* @Html.DisplayFor(modelItem => item.Article) *@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+</div>
+
+*@

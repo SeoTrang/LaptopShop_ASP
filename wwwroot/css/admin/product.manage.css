@@ -87,7 +87,16 @@
 }
 
 .product-manage-page .action .edit{
+    border: none;
+    padding: 0.2em 0.4em;
+    border-radius: 5px;
+    color: #ffffff;
     background-color: #28d094;
+}
+
+.product-manage-page .action .edit{
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .product-manage-page .action .edit:hover{

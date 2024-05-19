@@ -24,8 +24,10 @@ namespace LapTopShop.Areas.Admin.Controllers
         // GET: Product
         public async Task<IActionResult> Index()
         {
-            var dbContext = _context.Products.Include(p => p.Category);
-            return View(await dbContext.ToListAsync());
+            var data = await _context.Products.Include(p => p.Category).ToListAsync();
+            System.Console.WriteLine(data.Count);
+            ViewBag.Product = data;
+            return View(data);
         }
 
         // GET: Product/Details/5
@@ -206,6 +208,8 @@ namespace LapTopShop.Areas.Admin.Controllers
         // GET: Product/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            System.Console.WriteLine("---------------id");
+            System.Console.WriteLine(id);
             if (id == null || _context.Products == null)
             {
                 return NotFound();
@@ -225,13 +229,23 @@ namespace LapTopShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CategoryId,Status,ProductName,OldPrice,Discount,Price,Quantity,Avatar,CpuTechnology,Kernel,Threads,ProcessorSpeedCPU,MaxSpeed,Caching,Ram,TypeRAM,RAMBusSpeed,MaxRam,HardDrive,ScreenSize,ScreenResolution,ScanFrequency,ScreenTechnology,GraphicCard,AudioTechnology,Connector,WirelessConnectivity,Webcam,KeyboardLight,Size,Weight,Material,Battery,Os,ReleaseTime,Article")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CategoryId,Status,ProductName,OldPrice,Discount,Price,Quantity,Avatar,CpuTechnology,Kernel,Threads,ProcessorSpeedCPU,MaxSpeed,Caching,Ram,TypeRAM,RAMBusSpeed,MaxRam,HardDrive,ScreenSize,ScreenResolution,ScanFrequency,ScreenTechnology,GraphicCard,AudioTechnology,Connector,WirelessConnectivity,Webcam,KeyboardLight,Size,Weight,Material,Battery,Os,ReleaseTime,Article,TypeLaptop")] Product product)
         {
             if (id != product.Id)
             {
                 return NotFound();
             }
-
+            System.Console.WriteLine("IsValidProduct : " + ModelState.IsValid);
+            if (!ModelState.IsValid)
+            {
+                foreach (var state in ModelState)
+                {
+                    foreach (var error in state.Value.Errors)
+                    {
+                        System.Console.WriteLine($"Error in {state.Key}: {error.ErrorMessage}");
+                    }
+                }
+            }
             if (ModelState.IsValid)
             {
                 try

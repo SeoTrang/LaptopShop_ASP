@@ -144,7 +144,7 @@ namespace LapTopShop.Models
 
         // Trường để tải lên danh sách ảnh chi tiết
         [BindProperty]
-        [Required(ErrorMessage ="Chọn danh sách file upload")]
+        // [Required(ErrorMessage ="Chọn danh sách file upload")]
         [DisplayName("List File Upload")]
         [NotMapped]
         public List<IFormFile> ProductImageFiles { get; set; }

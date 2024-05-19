@@ -2,246 +2,8 @@
 
 @{
     ViewData["Title"] = "Index";
+    int index = 0;
 }
-
-@* 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OldPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Avatar)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CpuTechnology)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kernel)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Threads)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProcessorSpeedCPU)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaxSpeed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Caching)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ram)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TypeRAM)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RAMBusSpeed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaxRam)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HardDrive)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ScreenSize)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ScreenResolution)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ScanFrequency)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ScreenTechnology)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GraphicCard)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AudioTechnology)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Connector)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WirelessConnectivity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Webcam)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KeyboardLight)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Size)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Weight)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Material)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Battery)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Os)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReleaseTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Article)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OldPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Avatar)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CpuTechnology)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kernel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Threads)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProcessorSpeedCPU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxSpeed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Caching)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ram)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeRAM)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RAMBusSpeed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxRam)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HardDrive)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ScreenSize)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ScreenResolution)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ScanFrequency)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ScreenTechnology)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GraphicCard)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AudioTechnology)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Connector)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WirelessConnectivity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Webcam)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KeyboardLight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Weight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Material)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Battery)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Os)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Article)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table> *@
 
 <div class="container-app">
             <div class="header">
@@ -286,7 +48,7 @@
                         </div>
 
                         <div class="title-right">
-                            <a href="./AddProduct.html"><button class="btn-admin-common">Thêm Sản Phẩm Mới</button></a>
+                            <a asp-action="Create"><button class="btn-admin-common">Thêm Sản Phẩm Mới</button></a>
                         </div>
                     </div>
 
@@ -321,317 +83,64 @@
 
                         </div>
 
-                        <div class="row-body row-item">
-                            <div class="stt">
-                                1
-                            </div>
-                            <div class="img">
-                                <img src="https://cdn.tgdd.vn/Products/Images/44/231244/macbook-air-m1-2020-gray-600x600.jpg" alt="">
-                            </div>
-                            <div class="name">
-                                Laptop Apple MacBook Air 13 inch M1 2020 8-core CPU/8GB/256GB/7-core GPU (MGN63SA/A)
-                            </div>
-
-                            <div class="price">
-                                18.490.000₫
-                            </div>
-
-                            <div class="sold">
-                                4k9
-                            </div>
-
-                            <div class="quanti">
-                                98
-                            </div>
-
-                            <div class="action">
-                                <a href="">
-                                    <button class="edit">Sửa</button>
-                                </a>
-
-                                <button class="delete" data-bs-toggle="modal" data-bs-target="#ModalDelete">
-                                    Xóa
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Thông Báo !</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Bạn chắc chắn muốn xóa sản phẩm ?
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa</button>
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hủy</button>
-                                        </div>
+                     @if (ViewBag.Product != null){
+                            @foreach(var item in ViewBag.Product){
+                                <div class="row-body row-item">
+                                    <div class="stt">
+                                        @(++index)
                                     </div>
+                                    <div class="img">
+                                        <img src="@item.Avatar" alt="">
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row-body row-item">
-                            <div class="stt">
-                                1
-                            </div>
-                            <div class="img">
-                                <img src="https://cdn.tgdd.vn/Products/Images/44/231244/macbook-air-m1-2020-gray-600x600.jpg" alt="">
-                            </div>
-                            <div class="name">
-                                Laptop Apple MacBook Air 13 inch M1 2020 8-core CPU/8GB/256GB/7-core GPU (MGN63SA/A)
-                            </div>
-
-                            <div class="price">
-                                18.490.000₫
-                            </div>
-
-                            <div class="sold">
-                                4k9
-                            </div>
-
-                            <div class="quanti">
-                                98
-                            </div>
-
-                            <div class="action">
-                                <a href="">
-                                    <button class="edit">Sửa</button>
-                                </a>
-
-                                <button class="delete" data-bs-toggle="modal" data-bs-target="#ModalDelete">
-                                    Xóa
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Thông Báo !</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Bạn chắc chắn muốn xóa sản phẩm ?
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa</button>
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hủy</button>
-                                        </div>
+                                    <div class="name">
+                                        @item.ProductName
                                     </div>
+
+                                    <div class="price">
+                                        @item.Price.ToString("N0")₫
+                                    </div>
+
+                                    <div class="sold">
+                                        4k9
+                                    </div>
+
+                                    <div class="quanti">
+                                        @item.Quantity
+                                    </div>
+
+                                    <div class="action">
+                                        <a href="">
+                                            <a class="edit" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+                                        </a>
+
+                                        <button class="delete" data-bs-toggle="modal" data-bs-target="#ModalDelete" asp-action="Delete" asp-route-id="@item.Id">
+                                            Xóa
+                                        </button>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Thông Báo !</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Bạn chắc chắn muốn xóa sản phẩm ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa</button>
+                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hủy</button>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="row-body row-item">
-                            <div class="stt">
-                                1
-                            </div>
-                            <div class="img">
-                                <img src="https://cdn.tgdd.vn/Products/Images/44/231244/macbook-air-m1-2020-gray-600x600.jpg" alt="">
-                            </div>
-                            <div class="name">
-                                Laptop Apple MacBook Air 13 inch M1 2020 8-core CPU/8GB/256GB/7-core GPU (MGN63SA/A)
-                            </div>
+                            }}
+                        
 
-                            <div class="price">
-                                18.490.000₫
-                            </div>
-
-                            <div class="sold">
-                                4k9
-                            </div>
-
-                            <div class="quanti">
-                                98
-                            </div>
-
-                            <div class="action">
-                                <a href="">
-                                    <button class="edit">Sửa</button>
-                                </a>
-
-                                <button class="delete" data-bs-toggle="modal" data-bs-target="#ModalDelete">
-                                    Xóa
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Thông Báo !</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Bạn chắc chắn muốn xóa sản phẩm ?
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa</button>
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hủy</button>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row-body row-item">
-                            <div class="stt">
-                                1
-                            </div>
-                            <div class="img">
-                                <img src="https://cdn.tgdd.vn/Products/Images/44/231244/macbook-air-m1-2020-gray-600x600.jpg" alt="">
-                            </div>
-                            <div class="name">
-                                Laptop Apple MacBook Air 13 inch M1 2020 8-core CPU/8GB/256GB/7-core GPU (MGN63SA/A)
-                            </div>
-
-                            <div class="price">
-                                18.490.000₫
-                            </div>
-
-                            <div class="sold">
-                                4k9
-                            </div>
-
-                            <div class="quanti">
-                                98
-                            </div>
-
-                            <div class="action">
-                                <a href="">
-                                    <button class="edit">Sửa</button>
-                                </a>
-
-                                <button class="delete" data-bs-toggle="modal" data-bs-target="#ModalDelete">
-                                    Xóa
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Thông Báo !</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Bạn chắc chắn muốn xóa sản phẩm ?
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa</button>
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hủy</button>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row-body row-item">
-                            <div class="stt">
-                                1
-                            </div>
-                            <div class="img">
-                                <img src="https://cdn.tgdd.vn/Products/Images/44/231244/macbook-air-m1-2020-gray-600x600.jpg" alt="">
-                            </div>
-                            <div class="name">
-                                Laptop Apple MacBook Air 13 inch M1 2020 8-core CPU/8GB/256GB/7-core GPU (MGN63SA/A)
-                            </div>
-
-                            <div class="price">
-                                18.490.000₫
-                            </div>
-
-                            <div class="sold">
-                                4k9
-                            </div>
-
-                            <div class="quanti">
-                                98
-                            </div>
-
-                            <div class="action">
-                                <a href="">
-                                    <button class="edit">Sửa</button>
-                                </a>
-
-                                <button class="delete" data-bs-toggle="modal" data-bs-target="#ModalDelete">
-                                    Xóa
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Thông Báo !</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Bạn chắc chắn muốn xóa sản phẩm ?
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa</button>
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hủy</button>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row-body row-item">
-                            <div class="stt">
-                                1
-                            </div>
-                            <div class="img">
-                                <img src="https://cdn.tgdd.vn/Products/Images/44/231244/macbook-air-m1-2020-gray-600x600.jpg" alt="">
-                            </div>
-                            <div class="name">
-                                Laptop Apple MacBook Air 13 inch M1 2020 8-core CPU/8GB/256GB/7-core GPU (MGN63SA/A)
-                            </div>
-
-                            <div class="price">
-                                18.490.000₫
-                            </div>
-
-                            <div class="sold">
-                                4k9
-                            </div>
-
-                            <div class="quanti">
-                                98
-                            </div>
-
-                            <div class="action">
-                                <a href="">
-                                    <button class="edit">Sửa</button>
-                                </a>
-
-                                <button class="delete" data-bs-toggle="modal" data-bs-target="#ModalDelete">
-                                    Xóa
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Thông Báo !</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Bạn chắc chắn muốn xóa sản phẩm ?
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Xóa</button>
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hủy</button>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                        
 

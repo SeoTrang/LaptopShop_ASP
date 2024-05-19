@@ -1,0 +1,41 @@
+﻿
+@page  "/admin/Roles"
+@model LapTopShop.Areas.Admin.Role.IndexModel
+@{
+    ViewData["Title"] = "Danh sách Roles";
+}
+
+
+<div class="container-app p-3">
+    <h2>
+
+    @ViewData["Title"]
+</h2>
+    <partial name = "_StatusMessage" model="@Model.StatusMessage"></partial>
+    <div class="mb-2">
+        <a class="bt btn-secondary" asp-page="./Create" >Tạo mới</a>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                Tên Role
+            </th>
+            <th>
+                Tác vụ
+            </th>
+        </tr>
+        @foreach(var role in Model.Roles)
+        {
+            <tr>
+                <td>
+                    @role.Name
+                </td>
+                <td>
+                    <a class="btn btn-success btn-sm" asp-page="./Edit" asp-route-routeid="@role.Id">Cập nhật</a>
+                    <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-routeid="@role.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
