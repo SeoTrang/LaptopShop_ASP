@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+// using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +8,7 @@ using LapTopShop.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace LapTopShop.Areas.Admin.Controllers
 {
@@ -67,5 +68,59 @@ namespace LapTopShop.Areas.Admin.Controllers
         {
             return View("Error!");
         }
+
+
+        public async Task<IActionResult> Accept(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await _context.Orders
+                                    .FirstOrDefaultAsync(o => o.Id == id);
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            // Update the state to "shipping"
+            order.State = "shipping";
+
+            // Save changes to the database
+            _context.Update(order);
+            await _context.SaveChangesAsync();
+
+            // Redirect to a view or return a success response
+            return RedirectToAction(nameof(Index)); // Redirect to a list of orders or another relevant view
+        }
+
+        public async Task<IActionResult> Canecled(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = await _context.Orders
+                                    .FirstOrDefaultAsync(o => o.Id == id);
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            // Update the state to "shipping"
+            order.State = "canceled";
+
+            // Save changes to the database
+            _context.Update(order);
+            await _context.SaveChangesAsync();
+
+            // Redirect to a view or return a success response
+            return RedirectToAction(nameof(Index)); // Redirect to a list of orders or another relevant view
+        }
+
     }
 }

@@ -105,7 +105,7 @@ namespace LapTopShop.Controllers
                 string code = "#" + UniqueCodeGenerator.GenerateUniqueCode(argument1, argument2);
                 _logger.LogInformation($"Code: {code}");
                 order.Code = code;
-                order.State = "Đang Chờ";
+                order.State = "pending";
                 // order.State = "Đang Giao";
                 // order.State = "Đã Giao";
                 DateTime dateTime = new DateTime();
@@ -176,8 +176,8 @@ namespace LapTopShop.Controllers
                     .Where(c => c.Id == CartId)
                     .FirstOrDefault(); // Thay thế FirstOrDefaultAsync bằng ToListAsync
 
-                _logger.LogInformation("cartDel : " + cartDel.Id);
-                _logger.LogInformation("cartDel[1] : " + cartDel.CartItems[1].Id);
+                // _logger.LogInformation("cartDel : " + cartDel.Id);
+                // _logger.LogInformation("cartDel[1] : " + cartDel.CartItems[1].Id);
                 if (cartDel != null)
                 {
                     _logger.LogInformation("da vao ");

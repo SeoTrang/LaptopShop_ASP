@@ -70,21 +70,28 @@
                                     <td>@item.TotalPrice.ToString("N0")₫</td>
                                     <td>@item.State</td>
                                     <td>
-                                        @if(@item.State == "Đang Chờ"){
-                                            <button class="btn btn-primary btn-sm">
+                                        @if(@item.State == "pending"){
+                                            <a class="btn btn-primary btn-sm" asp-action="Accept" asp-route-id="@item.Id">
                                                 Xác nhận
-                                            </button>
+                                            </a>
                                         }else{
                                             <button class="btn btn-secondary btn-sm">
                                                 Xác nhận
                                             </button>
                                         }
-                                        <button class="btn btn-success btn-sm">
+                                        <a class="btn btn-success btn-sm">
                                             Xem
-                                        </button>
-                                        <button class="ml-3 btn btn-danger btn-sm">
-                                            Xóa
-                                        </button>
+                                        </a>
+                                        @if(@item.State == "canceled" || @item.State == "shipping" || @item.State == "success"){
+                                            <a class="ml-3 btn btn-secondary btn-sm" asp-action="Canecled" asp-route-id="@item.Id">
+                                                Hủy
+                                            </a>
+                                        }else{
+                                                <a class="ml-3 btn btn-danger btn-sm" asp-action="Canecled" asp-route-id="@item.Id">
+                                                    Hủy
+                                                </a>
+                                            
+                                        }
                                     </td>
                                 </tr>
                             }
