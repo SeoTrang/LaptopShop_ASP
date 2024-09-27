@@ -41,12 +41,12 @@
 
                 <div class="search ">
                     <div class="container mt-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Bạn tìm gì...">
-                            <button class="" type="button">
+                        <form class="input-group" method="get" asp-controller="Product" asp-action="Search">
+                            <input type="text" name="search" class="form-control" placeholder="Bạn tìm gì...">
+                            <button class="" type="submit">
                                 <i class="fa-solid fa-magnifying-glass"></i> <!-- Icon from Font Awesome -->
                             </button>
-                        </div>
+                        </form>
                     </div>
                     
                     <!-- <div class="input-search">

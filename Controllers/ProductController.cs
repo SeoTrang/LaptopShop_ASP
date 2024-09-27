@@ -32,25 +32,25 @@ namespace LapTopShop.Controllers
                 //     .ToListAsync(); // Lấy danh sách 5 bản ghi
 
                 var office_laptop = await _context.Products
-                    .Where(p => p.TypeLaptop == "Văn Phòng" && p.Status == "Mới") // Lọc sản phẩm theo TypeLaptop và Status
+                    .Where(p => p.TypeLaptop == "Văn Phòng" && p.Status == status) // Lọc sản phẩm theo TypeLaptop và Status
                     .Include(p => p.Category) // Nạp thông tin Category
                     .Take(10) // Giới hạn số lượng bản ghi
                     .ToListAsync(); // Lấy danh sách sản phẩm Văn Phòng
 
                 var gaming_laptop = await _context.Products
-                    .Where(p => p.TypeLaptop == "Gaming" && p.Status == "Mới") // Lọc sản phẩm theo TypeLaptop và Status
+                    .Where(p => p.TypeLaptop == "Gaming" && p.Status == status) // Lọc sản phẩm theo TypeLaptop và Status
                     .Include(p => p.Category) // Nạp thông tin Category
                     .Take(10) // Giới hạn số lượng bản ghi
                     .ToListAsync(); // Lấy danh sách sản phẩm Gaming
 
                 var Graphics_Laptop = await _context.Products
-                    .Where(p => p.TypeLaptop == "Đồ Họa" && p.Status == "Mới") // Lọc sản phẩm theo TypeLaptop và Status
+                    .Where(p => p.TypeLaptop == "Đồ Họa" && p.Status == status) // Lọc sản phẩm theo TypeLaptop và Status
                     .Include(p => p.Category) // Nạp thông tin Category
                     .Take(10) // Giới hạn số lượng bản ghi
                     .ToListAsync(); // Lấy danh sách sản phẩm Đồ Họa
 
                 var Laptop_for_you = await _context.Products
-                    .Where(p => p.Status == "Mới") // Lọc sản phẩm theo Status
+                    .Where(p => p.Status == status) // Lọc sản phẩm theo Status
                     .Include(p => p.Category) // Nạp thông tin Category
                     .Take(10) // Giới hạn số lượng bản ghi
                     .ToListAsync(); // Lấy danh sách sản phẩm Mới
@@ -73,5 +73,28 @@ namespace LapTopShop.Controllers
             // return View();
             // return Content("status : " + status);
         }
+
+        public async Task<IActionResult> Search(string search)
+        {
+            try
+            {
+                var searchResults = await _context.Products
+                    .Where(p => EF.Functions.Like(p.ProductName, $"%{search}%")) // Tìm kiếm gần đúng theo tên sản phẩm
+                    .Include(p => p.Category) // Nạp thông tin Category
+                    .ToListAsync(); // Lấy danh sách sản phẩm
+
+                
+                ViewBag.Products = searchResults;
+                return View(); // Trả về view Index với kết quả tìm kiếm
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while searching for products.");
+                return View("Error");
+            }
+        }
     }
+
+    
+
 }

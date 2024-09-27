@@ -30,28 +30,28 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     .AddEntityFrameworkStores<dbContext>();
     // .AddDefaultTokenProviders(); // Thêm dòng này để cung cấp các token provider mặc định
 
-builder.Services.Configure<IdentityOptions>(options =>
-{
-    options.Password.RequireDigit = false; // Không bắt phải có số
-    options.Password.RequireLowercase = false; // Không bắt phải có chữ thường
-    options.Password.RequireNonAlphanumeric = false; // Không bắt ký tự đặc biệt
-    options.Password.RequireUppercase = false; // Không bắt buộc chữ in
-    options.Password.RequiredLength = 3; // Số ký tự tối thiểu của password
-    options.Password.RequiredUniqueChars = 1; // Số ký tự riêng biệt
+// builder.Services.Configure<IdentityOptions>(options =>
+// {
+//     options.Password.RequireDigit = false; // Không bắt phải có số
+//     options.Password.RequireLowercase = false; // Không bắt phải có chữ thường
+//     options.Password.RequireNonAlphanumeric = false; // Không bắt ký tự đặc biệt
+//     options.Password.RequireUppercase = false; // Không bắt buộc chữ in
+//     options.Password.RequiredLength = 3; // Số ký tự tối thiểu của password
+//     options.Password.RequiredUniqueChars = 1; // Số ký tự riêng biệt
 
-    // Cấu hình Lockout - khóa user
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5); // Khóa 5 phút
-    options.Lockout.MaxFailedAccessAttempts = 10; // Thất bại 5 lần thì khóa
-    options.Lockout.AllowedForNewUsers = true;
+//     // Cấu hình Lockout - khóa user
+//     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5); // Khóa 5 phút
+//     options.Lockout.MaxFailedAccessAttempts = 10; // Thất bại 5 lần thì khóa
+//     options.Lockout.AllowedForNewUsers = true;
 
-    // Cấu hình về User.
-    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
-    options.User.RequireUniqueEmail = true;  // Email là duy nhất
+//     // Cấu hình về User.
+//     options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+//     options.User.RequireUniqueEmail = true;  // Email là duy nhất
 
-    // Cấu hình đăng nhập.
-    options.SignIn.RequireConfirmedEmail = false; // Cấu hình xác thực địa chỉ email (email phải tồn tại)
-    options.SignIn.RequireConfirmedPhoneNumber = false; // Xác thực số điện thoại
-});
+//     // Cấu hình đăng nhập.
+//     options.SignIn.RequireConfirmedEmail = false; // Cấu hình xác thực địa chỉ email (email phải tồn tại)
+//     options.SignIn.RequireConfirmedPhoneNumber = false; // Xác thực số điện thoại
+// });
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
